@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS tisktask_db;
 CREATE DATABASE tisktask_db;
 USE tisktask_db;
 
-CREATE TABLE property_managers(
+CREATE TABLE landlords(
   id INTEGER AUTO_INCREMENT NOT NULL,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE property_managers(
   personal_phone INTEGER NOT NULL,
   property_email VARCHAR(100) NOT NULL,
   personal_email VARCHAR(100) NOT NULL,
-  login_password VARCHAR(100) NOT NULL,
+  -- login_password VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE tenants(
   PRIMARY KEY (id)
 );
 
-CREATE TABLE maintenance_requests(
+CREATE TABLE tickets(
   id INTEGER AUTO_INCREMENT NOT NULL,
   request_type VARCHAR(100) NOT NULL,
   open_date VARCHAR(100) NOT NULL,

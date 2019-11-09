@@ -1,0 +1,22 @@
+.btn {
+	margin: 40px;
+	height: 60px;
+	width: 180px;
+	font-family: 'Fjalla One';
+	font-size: 2em;
+	background-color: #CDEBE9;
+	border-radius: 10px;
+	box-shadow: 5px 5px #888888;
+	transition: 0.2s;
+}
+
+.btn:hover {
+	background-color: #FCD0B7;
+	cursor: pointer;
+	transition: 0.2s;
+}
+
+.btn:focus {
+	outline: none;
+	color: gray;
+}
