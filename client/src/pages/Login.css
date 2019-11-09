@@ -1,0 +1,12 @@
+.link-to-register {
+	font-family: 'Oxygen';
+	font-size: 0.9em;
+	color: gray;
+	transition: 0.2s;
+}
+
+.link-to-register:hover {
+	color: #768BB4;
+	text-decoration: underline;
+	transition: 0.2s;
+}
