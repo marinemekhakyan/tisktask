@@ -10,8 +10,8 @@ export default {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
-    })
-  ,
+    }),
+  
   logout: () => fetch("/api/auth/", { method: 'DELETE' }),
   validateCookie: sid => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
 };

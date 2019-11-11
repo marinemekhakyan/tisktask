@@ -6,7 +6,6 @@ import Register from "./pages/Register";
 import Secure from "./pages/Secure";
 import TenantDashboard from "./pages/TenantDash";
 import LandlordDashboard from "./pages/LandlordDash";
-import AboutUsPage from "./pages/AboutUs";
 
 import './App.css';
 
