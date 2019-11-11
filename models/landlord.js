@@ -1,5 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
-  var Landlords = sequelize.define("Landlords", {
+module.exports = function(sequelize, DataTypes) {
+  var Landlords = sequelize.define('Landlords', {
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,9 +15,36 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
 
-    personal_phone: {
-      type: DataTypes.INTEGER,
+    property_name: {
+      type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+
+    property_address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+
+    property_phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [10, 16]
+      }
+    },
+
+    personal_phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [10, 16]
+      }
     },
 
     property_email: {
@@ -36,19 +63,10 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 140],
         isEmail: true
       }
-    },
-
-    unit_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        len: [10]
-      }
-    },
-
+    }
   });
 
-  Landlords.associate = function (models) {
+  Landlords.associate = function(models) {
     Landlords.hasMany(models.Properties);
   };
 
