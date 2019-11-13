@@ -17,7 +17,10 @@ module.exports = function(sequelize, DataTypes) {
 
     primary_phone: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: [10, 16]
+      }
     },
 
     primary_email: {
@@ -27,27 +30,6 @@ module.exports = function(sequelize, DataTypes) {
         len: [1, 140],
         isEmail: true
       }
-    },
-
-    property_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
-    },
-
-    property_address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
-    },
-
-    unit_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false
     }
   });
 

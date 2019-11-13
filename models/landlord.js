@@ -15,30 +15,6 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    property_name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
-    },
-
-    property_address: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1, 140]
-      }
-    },
-
-    property_phone: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [10, 16]
-      }
-    },
-
     personal_phone: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -64,6 +40,14 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true
       }
     }
+
+    // unit_number: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   validate: {
+    //     len: [10]
+    //   }
+    // }
   });
 
   Landlords.associate = function(models) {

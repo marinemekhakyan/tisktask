@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
+const db = require('../../models/');
 
 // @route      POST api/landlord
 // @desc       register landlord
@@ -14,20 +15,14 @@ router.post(
     check('last_name', 'Last name is required')
       .not()
       .isEmpty(),
-    check('property_name', 'Property name is required')
-      .not()
-      .isEmpty(),
-    check('property_address', 'Property address is required')
-      .not()
-      .isEmpty(),
-    check('property_phone', 'Please use a valid phone number').isLength({
-      min: 10
-    }),
     check('personal_phone', 'Please use a valid phone number').isLength({
       min: 10
     }),
     check('property_email', 'Please use a valid email address').isEmail(),
     check('personal_email', 'Please use a valid email address').isEmail()
+    // check('unit_number', 'Unit number is required')
+    //   .not()
+    //   .isEmpty()
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -36,7 +31,14 @@ router.post(
     }
 
     console.log(req.body);
-    res.send('Landlord saved?? Check console');
+    db.Landlords.create(req.body)
+      .then(r => {
+        res.send('Landlord saved');
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ errors: err });
+      });
   }
 );
 

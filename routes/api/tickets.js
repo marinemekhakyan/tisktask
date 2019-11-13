@@ -9,16 +9,9 @@ const db = require('../../models/');
 router.post(
   '/',
   [
-    check('first_name', 'First name is required')
+    check('request_type', 'Request type is required')
       .not()
-      .isEmpty(),
-    check('last_name', 'Last name is required')
-      .not()
-      .isEmpty(),
-    check('primary_phone', 'Please use a valid phone number').isLength({
-      min: 10
-    }),
-    check('primary_email', 'Please use a valid email address').isEmail()
+      .isEmpty()
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -27,9 +20,9 @@ router.post(
     }
 
     console.log(req.body);
-    db.Tenants.create(req.body)
+    db.Tickets.create(req.body)
       .then(r => {
-        res.send('Tenant saved');
+        res.send('Ticket saved');
       })
       .catch(err => {
         console.error(err);
