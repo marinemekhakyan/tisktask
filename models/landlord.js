@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Landlords = sequelize.define('Landlords', {
+  var Landlords = sequelize.define("Landlords", {
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    personal_phone: {
+    phone_number: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    property_email: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -32,22 +32,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    personal_email: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1, 140],
-        isEmail: true
+        len: [12]
       }
     }
-
-    // unit_number: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   validate: {
-    //     len: [10]
-    //   }
-    // }
   });
 
   Landlords.associate = function(models) {
