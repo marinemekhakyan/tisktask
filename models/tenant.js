@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Tenants = sequelize.define("Tenants", {
     first_name: {
       type: DataTypes.STRING,
@@ -16,8 +16,11 @@ module.exports = function (sequelize, DataTypes) {
     },
 
     primary_phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: [10, 16]
+      }
     },
 
     primary_email: {
@@ -27,11 +30,18 @@ module.exports = function (sequelize, DataTypes) {
         len: [1, 140],
         isEmail: true
       }
-    }
+    },
 
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [12, 200]
+      }
+    }
   });
 
-  Tenants.associate = function (models) {
+  Tenants.associate = function(models) {
     Tenants.hasOne(models.Units);
   };
 
