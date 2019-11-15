@@ -2,4 +2,4 @@ USE tisktask_db;
 
 SELECT * FROM tenants;
 SELECT * FROM landlords;
-SELECT * FROM tickets;
+SELECT * FROM users;

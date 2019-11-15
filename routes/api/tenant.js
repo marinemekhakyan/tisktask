@@ -4,9 +4,10 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const db = require("../../models/");
 
-// @route      POST api/tenant/resetpassword
+// ROUTE 1 ----------------------------------------------------------
+// @route      PUT api/tenant/resetpassword
 // @desc       reset tenants login password
-// @access     private
+// @access     public
 router.put(
   "/resetpassword",
   [
@@ -61,6 +62,23 @@ router.put(
               console.error(err);
               return res.status(500).json({ errors: err });
             });
+          db.Users.create({
+            username: req.body.primary_email,
+            hash: hash,
+            role: "tenant"
+          })
+            .then(re => {
+              res.send("Tenant as user saved");
+              console.log({
+                username: req.body.primary_email,
+                hash: hash,
+                role: "tenant"
+              });
+            })
+            .catch(er => {
+              console.error(er);
+              return res.status(500).json({ errors: er });
+            });
         });
       })
       .catch(e => {
@@ -70,9 +88,40 @@ router.put(
   }
 );
 
-// for testing route connection
-// router.get('/', (req, res) => {
-//   res.send('Tenant route working');
-// });
+// ROUTE 2 ----------------------------------------------------------
+// @route      POST api/tenant/login
+// @desc       tenant login
+// @access     public
+router.post("/login", (req, res) => {
+  db.Users.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Incorrect username or password" }] });
+      }
+
+      bcrypt
+        .compare(req.body.hash, response.hash)
+        .then(match => {
+          if (match) {
+            req.session.user = response;
+            res.status(200).send("Tenant successfully logged in");
+          }
+          res.status(401).send("Incorrect username or password");
+        })
+        .catch(err => {
+          return res.status(500).send(err.message);
+        });
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
 
 module.exports = router;

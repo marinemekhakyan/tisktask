@@ -4,6 +4,7 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const db = require("../../models/");
 
+// ROUTE 1 ----------------------------------------------------------
 // @route      POST api/landlord/register/self
 // @desc       landlord registers self
 // @access     public
@@ -60,6 +61,23 @@ router.post(
               console.error(err);
               return res.status(500).json({ errors: err });
             });
+          db.Users.create({
+            username: req.body.email,
+            hash: hash,
+            role: "landlord"
+          })
+            .then(re => {
+              res.send("Landlord as user saved");
+              console.log({
+                username: req.body.email,
+                hash: hash,
+                role: "landlord"
+              });
+            })
+            .catch(er => {
+              console.error(er);
+              return res.status(500).json({ errors: er });
+            });
         });
       })
       .catch(e => {
@@ -69,6 +87,43 @@ router.post(
   }
 );
 
+// ROUTE 2 ----------------------------------------------------------
+// @route      POST api/landlord/login
+// @desc       landlord login
+// @access     public
+router.post("/login", (req, res) => {
+  db.Users.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Incorrect username or password" }] });
+      }
+
+      bcrypt
+        .compare(req.body.hash, response.hash)
+        .then(match => {
+          if (match) {
+            req.session.user = response;
+            res.status(200).send("Landlord successfully logged in");
+          }
+          res.status(401).send("Incorrect username or password");
+        })
+        .catch(err => {
+          return res.status(500).send(err.message);
+        });
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
+
+// ROUTE 3 ----------------------------------------------------------
 // @route      POST api/landlord/register/tenant
 // @desc       landlord registers tenant
 // @access     private
@@ -100,14 +155,31 @@ router.post(
       return res.status(422).json({ errors: errors.array() });
     }
 
-    console.log(req.body);
-    db.Tenants.create(req.body)
-      .then(r => {
-        res.send("Tenant saved");
+    db.Tenants.findOne({
+      where: {
+        primary_email: req.body.primary_email
+      }
+    })
+      .then(response => {
+        if (response) {
+          return res
+            .status(400)
+            .json({ errors: [{ msg: "Tenant already exists" }] });
+        }
+
+        console.log(req.body);
+        db.Tenants.create(req.body)
+          .then(r => {
+            res.send("Tenant saved");
+          })
+          .catch(err => {
+            console.error(err);
+            return res.status(500).json({ errors: err });
+          });
       })
-      .catch(err => {
-        console.error(err);
-        return res.status(500).json({ errors: err });
+      .catch(e => {
+        console.error(e);
+        return res.status(500).json({ errors: e });
       });
   }
 );
