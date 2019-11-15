@@ -4,11 +4,11 @@ const { check, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const db = require("../../models/");
 
-// @route      POST api/landlord/register
-// @desc       register landlord
+// @route      POST api/landlord/register/self
+// @desc       landlord registers self
 // @access     public
 router.post(
-  "/register",
+  "/register/self",
   [
     check("first_name", "First name is required")
       .not()
@@ -65,6 +65,49 @@ router.post(
       .catch(e => {
         console.error(e);
         return res.status(500).json({ errors: e });
+      });
+  }
+);
+
+// @route      POST api/landlord/register/tenant
+// @desc       landlord registers tenant
+// @access     private
+router.post(
+  "/register/tenant",
+  [
+    check("first_name", "First name is required")
+      .not()
+      .isEmpty(),
+    check("last_name", "Last name is required")
+      .not()
+      .isEmpty(),
+    check("primary_phone", "Please use a valid phone number")
+      .isNumeric()
+      .isLength({
+        min: 10
+      }),
+    check("primary_email", "Please use a valid email address").isEmail(),
+    check(
+      "password",
+      "Temporary password minimum 12 characters is required"
+    ).isLength({
+      min: 12
+    })
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+    console.log(req.body);
+    db.Tenants.create(req.body)
+      .then(r => {
+        res.send("Tenant saved");
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ errors: err });
       });
   }
 );

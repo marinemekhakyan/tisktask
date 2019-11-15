@@ -1,24 +1,29 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const db = require('../../models/');
+const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcrypt");
+const db = require("../../models/");
 
-// @route      POST api/tenant
-// @desc       register tenant
+// @route      POST api/tenant/resetpassword
+// @desc       reset tenants login password
 // @access     private
-router.post(
-  '/',
+router.put(
+  "/resetpassword",
   [
-    check('first_name', 'First name is required')
+    check("first_name", "First name is required")
       .not()
       .isEmpty(),
-    check('last_name', 'Last name is required')
+    check("last_name", "Last name is required")
       .not()
       .isEmpty(),
-    check('primary_phone', 'Please use a valid phone number').isLength({
+    check("primary_phone", "Please use a valid phone number").isLength({
       min: 10
     }),
-    check('primary_email', 'Please use a valid email address').isEmail()
+    check("primary_email", "Please use a valid email address").isEmail(),
+    check(
+      "password",
+      "Password must be minimum 12 characters in length"
+    ).isLength({ min: 12 })
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -26,14 +31,41 @@ router.post(
       return res.status(422).json({ errors: errors.array() });
     }
 
-    console.log(req.body);
-    db.Tenants.create(req.body)
-      .then(r => {
-        res.send('Tenant saved');
+    db.Tenants.findOne({
+      where: {
+        primary_email: req.body.primary_email
+      }
+    })
+      .then(response => {
+        if (!response) {
+          return res
+            .status(400)
+            .json({ errors: [{ msg: "User does not exist" }] });
+        }
+
+        const password = req.body.password;
+        const saltRounds = 10;
+
+        bcrypt.hash(password, saltRounds, function(err, hash) {
+          req.body.password = hash;
+          console.log(req.body.password);
+          db.Tenants.update(
+            { password: hash },
+            { where: { primary_email: req.body.primary_email } }
+          )
+            .then(r => {
+              res.send("Tenant updated");
+              console.log(req.body);
+            })
+            .catch(err => {
+              console.error(err);
+              return res.status(500).json({ errors: err });
+            });
+        });
       })
-      .catch(err => {
-        console.error(err);
-        return res.status(500).json({ errors: err });
+      .catch(e => {
+        console.error(e);
+        return res.status(500).json({ errors: e });
       });
   }
 );

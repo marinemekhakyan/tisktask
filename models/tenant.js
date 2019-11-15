@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Tenants = sequelize.define('Tenants', {
+  var Tenants = sequelize.define("Tenants", {
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -29,6 +29,14 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1, 140],
         isEmail: true
+      }
+    },
+
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [12, 200]
       }
     }
   });
