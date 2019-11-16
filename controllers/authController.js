@@ -11,9 +11,8 @@ module.exports = {
           .then(hash => {
             console.log("create user on controller")
             db.Users
-              .create({ username: req.body.username, hash })
+              .create({ username: req.body.username, hash, role: req.body.role })
               .then(newUser => {
-                req.session.user = newUser;
                 res.send(200);
               })
               .catch(err => res.status(500).send(err.message));
@@ -23,7 +22,7 @@ module.exports = {
       .catch(err => res.status(500).send(err.message));
   },
   login: (req, res) => {
-    db.User
+    db.Users
       .findOne({ username: req.body.username })
       .then(user => {
         if (!user) {

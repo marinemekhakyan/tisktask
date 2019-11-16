@@ -2,6 +2,7 @@
   "name": "tisktask",
   "version": "1.0.0",
   "description": "Code Bootcamp Project #3",
+  "proxy": "http://localhost:8000",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
