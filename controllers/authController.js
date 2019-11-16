@@ -1,17 +1,17 @@
-const bcrypt = require("bcrypt");
-const db = require("../models/");
+const bcrypt = require('bcrypt');
+const db = require('../models/');
 
 // Defining methods for the authController
 module.exports = {
   register: (req, res) => {
-    console.log("REGISTER");
+    console.log('REGISTER');
     bcrypt
       .genSalt()
       .then(salt => {
         bcrypt
           .hash(req.body.password, salt)
           .then(hash => {
-            console.log("create user on controller");
+            console.log('create user on controller');
             db.Users.create({ username: req.body.username, hash })
               .then(newUser => {
                 req.session.user = newUser;
@@ -27,7 +27,7 @@ module.exports = {
     db.User.findOne({ username: req.body.username })
       .then(user => {
         if (!user) {
-          res.status(401).send("username or password incorrect");
+          res.status(401).send('username or password incorrect');
         }
 
         bcrypt
@@ -37,7 +37,7 @@ module.exports = {
               req.session.user = user;
               res.send(200);
             }
-            res.status(401).send("username or password incorrect");
+            res.status(401).send('username or password incorrect');
           })
           .catch(err => res.status(500).send(err.message));
       })
@@ -45,13 +45,13 @@ module.exports = {
   },
   validateSession: (req, res) => {
     const reqsid = decodeURIComponent(req.params.sid)
-      .split(":")[1]
-      .split(".")[0];
-    console.info("sid:", req.sessionID, reqsid);
+      .split(':')[1]
+      .split('.')[0];
+    console.info('sid:', req.sessionID, reqsid);
     if (reqsid === req.sessionID) {
-      res.sendStatus(200);
+      return res.sendStatus(200);
     }
-    res.sendStatus(403);
+    return res.sendStatus(403);
   },
   logout: (req, res) => {
     req.session.destroy(err => {

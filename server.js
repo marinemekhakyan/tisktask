@@ -4,21 +4,22 @@ const express = require('express');
 const session = require('express-session');
 const routes = require('./routes/');
 
-var db = require("./models");
+var db = require('./models');
 
 var PORT = process.env.PORT || 8000;
 
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-
 const sessConfig = {
-  secret: 'keyboard cat', resave: false, saveUninitialized: false,
-  cookie: { path: '/', httpOnly: false, maxAge: 5 * 60 * 1000 }
-}
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { path: '/', httpOnly: false, maxAge: 15 * 60 * 1000 }
+};
 
 if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1);
@@ -33,12 +34,12 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Add routes, both API and view
-app.use(routes)
+app.use(routes);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      '==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',
       PORT,
       PORT
     );
