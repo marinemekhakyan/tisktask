@@ -64,12 +64,10 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    //     // API.login(this.state.username, this.state.password)
-    //     //   .then(res => this.props.history.push('/secure'))
-    //     //   .catch(err => console.error(err));
+    //// API.login(this.state.username, this.state.password)
+    //// .then(res => this.props.history.push('/secure'))
+    //// .catch(err => console.error(err));
   }
-
-
 
   render() {
     return (
@@ -87,7 +85,7 @@ class Login extends Component {
                 </span>
 
                 <span className="login100-form-logo">
-                  <img id="fingerLogo" src="/assets/fingerLogo.png" />
+                  <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
                 </span>
 
                 <span className="login100-form-title" id="loginSubTitle1">
@@ -133,8 +131,6 @@ class Login extends Component {
             </div>
           </div>
         </div>
-
-
         <div id="dropDownSelect1"></div>
       </Fragment>
     );

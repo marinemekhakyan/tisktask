@@ -45,7 +45,8 @@
 
 body, html {
 	height: 100%;
-	font-family: Poppins-Regular, sans-serif;
+  font-family: Poppins-Regular, sans-serif;
+  overflow: hidden;
 }
 
 /*---------------------------------------------*/
@@ -229,8 +230,7 @@ iframe {
 /* LOGIN PAGE LOGO */
 #fingerLogo{
   height: 1em;
-  width: .5em;
-
+  width: 1em;
 }
 
 .limiter {
@@ -316,7 +316,7 @@ iframe {
   color: #fff;
   line-height: 1;
   text-align: center;
-  
+
   display: block;
 }
 
