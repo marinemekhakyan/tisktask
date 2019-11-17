@@ -14,7 +14,7 @@ const LandlordReg = ({ inputHandler, submitHandler }) => (
       <label htmlFor="lastname" className="input-label">Last Name</label>
     </div>
     <div className="input-container">
-      <input id="primaryphone" type="text" name="primaryphone" onChange={inputHandler} required />
+      <input id="primaryphone" type="number" name="primaryphone" onChange={inputHandler} required />
       <span className="input-underline"></span>
       <label htmlFor="primaryphone" className="input-label">Primary phone</label>
     </div>
