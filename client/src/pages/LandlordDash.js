@@ -1,14 +1,14 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+// import TenantReg from "../components/TenantRegistration/TenantReg";
 
 class LandlordDashboard extends Component {
 
   render() {
     return (
       <Fragment>
-          <video muted autoPlay loop poster='assets/backgroundStill.png' className="fullscreen-bg__video">
-          <source src="assets/ttBackgroundVid.mp4" type="video/mp4" />
-        </video>
+    <video muted autoPlay loop poster='assets/backgroundStill.png' className="fullscreen-bg__video">
+        <source src="assets/ttBackgroundVid.mp4" type="video/mp4" />
+    </video>
 
 	<div className="limiter">	
 		<div className="container-login100">
@@ -59,8 +59,9 @@ class LandlordDashboard extends Component {
 	
 
 	<div id="dropDownSelect1"></div>
+    
 	
-      </Fragment>
+    </Fragment>
     );
   }
 }
