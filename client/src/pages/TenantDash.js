@@ -23,7 +23,7 @@ class TenantDashboard extends Component {
                 </span>
 
                 <span className="login100-form-logo">
-                    <img id="fingerLogo" src="images/fingerLogo.png" />
+                    <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
                 </span>
                 
                 <h3 className="login100-form-title p-b-60 p-t-34" id="welcomeMsg">Welcome home, 
