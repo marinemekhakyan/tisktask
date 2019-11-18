@@ -8,7 +8,8 @@ class Login extends Component {
 
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      role: ''
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -34,7 +35,6 @@ class Login extends Component {
         <video muted autoPlay loop poster='assets/backgroundStill.png' className="fullscreen-bg__video">
           <source src="assets/ttBackgroundVid.mp4" type="video/mp4" />
         </video>
-
         <div className="limiter">
           <div className="container-login100">
             <div className="wrap-login100">
@@ -42,11 +42,9 @@ class Login extends Component {
                 <span className="login100-form-title" id="loginTitle">
                   TiskTask
                 </span>
-
                 <span className="login100-form-logo">
                   <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
                 </span>
-
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
@@ -56,7 +54,6 @@ class Login extends Component {
                   <span className="input-underline"></span>
                   <label htmlFor="username" className="input-label">Username</label>
                 </div>
-
                 <div className="wrap-input100 validate-input">
                   <input className="input100" type="password" name="password" onChange={this.handleInputChange} value={this.state.password} required />
                   <span className="input-underline"></span>
@@ -68,19 +65,16 @@ class Login extends Component {
                     Remember me
                   </label>
                 </div>
-
                 <div className="container-login100-form-btn">
                   <button className="login100-form-btn">
                     Login
                   </button>
                 </div>
-
                 <div className="text-center p-t-90">
                   <a className="txt1" href="#">
                     Landlord? Register Here.
                     </a>
                 </div>
-
                 <div className="text-center p-t-5">
                   <a className="txt1" href="#">
                     Forgot Password?
