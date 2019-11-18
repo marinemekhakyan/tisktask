@@ -46,7 +46,7 @@
 body, html {
 	height: 100%;
   font-family: Poppins-Regular, sans-serif;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /*---------------------------------------------*/
@@ -220,7 +220,7 @@ iframe {
 }
 
 .fullscreen-bg__video {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -367,7 +367,7 @@ iframe {
 
   display: block;
   width: 100%;
-  height: 45px;
+  height: 18px;
   background: transparent;
   padding: 0 5px 0 38px;
 }
@@ -586,10 +586,10 @@ iframe {
     padding: 55px 15px 37px 15px;
   }
 }
-
+/* 
 body {
   overflow: hidden;
-}
+} */
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/
@@ -658,9 +658,9 @@ body {
     opacity: 1;
   }
 
-body {
+/* body {
   overflow: hidden;
-}
+} */
 }
 
 /* BACKGROUND VID MEDIA QUERIES */
@@ -670,9 +670,9 @@ body {
     top: -100%;
   }
   
-body {
+/* body {
   overflow: hidden;
-}
+} */
 }
 
 @media (max-aspect-ratio: 16/9) {
@@ -681,9 +681,9 @@ body {
     left: -100%;
   }
   
-body {
+/* body {
   overflow: hidden;
-}
+} */
 }
 
 @media (max-width: 767px) {
@@ -696,10 +696,10 @@ body {
     background: url('/assets/backgroundStill.png') center center / cover no-repeat;
     
   }
-  
+/*   
 body {
   overflow: hidden;
-}
+} */
 }
 
 
