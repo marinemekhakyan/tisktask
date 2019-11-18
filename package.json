@@ -2,6 +2,7 @@
   "name": "tisktask",
   "version": "1.0.0",
   "description": "Code Bootcamp Project #3",
+  "proxy": "http://localhost:8000",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/marinemekhakyan/tisktask#readme",
   "dependencies": {
+    "@babel/standalone": "^7.7.3",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
