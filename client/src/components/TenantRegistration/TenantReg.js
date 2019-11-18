@@ -1,5 +1,5 @@
 import React from "react";
-import "./TenantReg.css";
+import "./LandlordReg.css";
 
 const TenantReg = ({ inputHandler, submitHandler }) => (
     <Fragment>
@@ -37,9 +37,9 @@ const TenantReg = ({ inputHandler, submitHandler }) => (
                             <label htmlFor="primaryemail" className="input-label">Primary Email</label>
                         </div>
                         <div className="input100">
-                            <input id="propertyaddress" type="text" name="propertyaddress" onChange={inputHandler} required />
+                            <input id="propertyaddress" type="text" name="streetname" onChange={inputHandler} required />
                             <span className="input-underline"></span>
-                            <label htmlFor="propertyaddress" className="input-label">Street name</label>
+                            <label htmlFor="streetname" className="input-label">Street name</label>
                         </div>
                         <div className="input100">
                             <input id="city" type="text" name="city" onChange={inputHandler} required />
