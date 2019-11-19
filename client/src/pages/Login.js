@@ -64,14 +64,14 @@ class Login extends Component {
                   <label className="label-checkbox100" htmlFor="ckb1">
                     Remember me
                   </label>
-                </div>
+                </div> 
                 <div className="container-login100-form-btn">
                   <button className="login100-form-btn">
                     Login
                   </button>
                 </div>
                 <div className="text-center p-t-90">
-                  <a className="txt1" href="#">
+                  <a className="txt1" href="">
                     Landlord? Register Here.
                     </a>
                 </div>

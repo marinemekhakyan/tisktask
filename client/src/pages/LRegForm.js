@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 // import "./main.css";
 // import "./util.css";
 
 
-class LandlordRegistration extends Component {
+class LandlordReg extends Component {
 
   constructor(props) {
     super(props);
@@ -28,53 +28,56 @@ class LandlordRegistration extends Component {
   render() {
     return (
       <Fragment>
-      <div>
-      <div class="limiter">
-        <div class="container-login100">
-          <div class="wrap-login100">
-            <form className="login100-form validate-form" onSubmit={submitHandler}>
-              <span className="login100-form-title" id="loginTitle">
-                TiskTask
-              </span>
-              <span className="login100-form-logo">
-                <img id="fingerLogo" src="../src/images/fingerLogo.png" />
-              </span>
-              <span class="login100-form-title" id="loginSubTitle1">
-                Don't Get Scolded | Get Stuff Done
-              </span>
-  
-              <div className="input-container">
-                <input id="firstname" type="text" name="firstname" onChange={inputHandler} required />
+        <video muted autoPlay loop poster='assets/backgroundStill.png' className="fullscreen-bg__video">
+          <source src="assets/ttBackgroundVid.mp4" type="video/mp4" />
+        </video>
+        <div className="limiter">
+          <div className="container-login100">
+            <div className="wrap-login100">
+              <form onSubmit={this.handleSubmit} className="login100-form validate-form">
+                <span className="login100-form-title" id="loginTitle">
+                  TiskTask
+                </span>
+                <span className="login100-form-logo">
+                  <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
+                </span>
+                <span className="login100-form-title" id="loginSubTitle1">
+                  Don't Get Scolded | Get Stuff Done
+                </span>
+                <h4 className="h4">Landlord Registration</h4>
+      
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="text" name="firstname" onChange={this.handleSubmit} required />
                 <span className="input-underline"></span>
                 <label htmlFor="firstname" className="input-label">First Name</label>
               </div>
   
-              <div className="input-container">
-                <input id="lastname" type="text" name="lastname" onChange={inputHandler} required />
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="text" name="lastname" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
                 <label htmlFor="lastname" className="input-label">Last Name</label>
               </div>
   
-              <div className="input-container">
-                <input id="primaryphone" type="text" name="primaryphone" onChange={inputHandler} required />
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="number" name="primaryphone" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
                 <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
               </div>
   
-              <div className="input-container">
-                <input id="primaryemail" type="email" name="primaryemail" onChange={inputHandler} required />
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="email" name="primaryemail" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
                 <label htmlFor="primaryemail" className="input-label">Primary Email</label>
               </div>
   
-              <div className="input-container">
-                <input id="username" type="text" name="username" onChange={inputHandler} value={content.username} required />
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="text" name="username" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
                 <label htmlFor="username" className="input-label">Username</label>
               </div>
   
-              <div className="input-container">
-                <input id="password" type="password" name="password" onChange={inputHandler} value={content.password} required />
+              <div className="wrap-input100 validate-input">
+                <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
                 <label htmlFor="password" className="input-label">Password</label>
               </div>
@@ -85,7 +88,7 @@ class LandlordRegistration extends Component {
                   Remember me
                 </label>
               </div>
-              <button className="btn">SUBMIT</button>
+              <button className="login100-form-btn">SUBMIT</button>
               <div class="text-center p-t-5">
                 <a class="txt1" href="#">
                   Forgot Password?
@@ -94,11 +97,10 @@ class LandlordRegistration extends Component {
             </form>
           </div>
         </div>
-      </div>
-    </div>
+      </div>  
     </Fragment>
     )
   }
 };
 
-export default LandlordRegistration;
+export default LandlordReg;

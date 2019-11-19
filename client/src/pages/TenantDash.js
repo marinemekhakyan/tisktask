@@ -56,9 +56,7 @@ class TenantDashboard extends Component {
 			</div>
 		</div>
 	</div>
-	
-
-	<div id="dropDownSelect1"></div>
+		<div id="dropDownSelect1"></div>
 	
       </Fragment>
     );
