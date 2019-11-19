@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from "react";
-// import "./main.css";
-// import "./util.css";
 
 
 class LandlordReg extends Component {

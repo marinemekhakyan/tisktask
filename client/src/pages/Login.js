@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import LandlordReg from "./LRegForm";
 
 class Login extends Component {
 
@@ -76,7 +77,7 @@ class Login extends Component {
                     </a>
                 </div>
                 <div className="text-center p-t-5">
-                  <a className="txt1" href="#">
+                  <a className="txt1" href="">
                     Forgot Password?
                   </a>
                 </div>

@@ -4,9 +4,11 @@ import Login from "./pages/Login";
 import TenantDashboard from "./pages/TenantDash";
 import LandlordDashboard from "./pages/LandlordDash";
 import LandlordRegistration from "./pages/LRegForm";
-import TenantRegistration from "./pages/TRegForm"
+import TenantRegistration from "./pages/TRegForm";
+import NewProperty from "./pages/NewProperty";
+import Properties from "./pages/Properties";
+import Tenants from "./pages/Tenants";
 
-import './App.css';
 
 function App() {
   return (
@@ -19,6 +21,10 @@ function App() {
           <Route exact path="/landlord-dashboard" component={LandlordDashboard} />
           <Route exact path="/landlord-registration" component={LandlordRegistration} />
           <Route exact path="/tenant-registration" component={TenantRegistration} />
+          <Route exact path="/add-new-property" component={NewProperty} />
+          <Route exact path="/my-properties" component={Properties} />
+          <Route exact path="/tenants-list" component={Tenants} />
+
         </Switch>
       </div>
     </Router>

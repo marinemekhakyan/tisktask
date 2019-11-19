@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 
-class TenantReg extends Component {
+class NewProperty extends Component {
 
     constructor(props) {
         super(props);
@@ -42,26 +42,11 @@ class TenantReg extends Component {
                                 <span className="login100-form-title" id="loginSubTitle1">
                                     Don't Get Scolded | Get Stuff Done
                                 </span>
-                                <h4 className="h4">Tenant Registration</h4>
+                                <h4 className="h4">Add New Property</h4>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="firstname" onChange={this.handleSubmit} required />
+                                    <input className="input100" type="text" name="propertyname" onChange={this.handleSubmit} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="firstname" className="input-label">First Name</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="lastname" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="lastname" className="input-label">Last Name</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="number" name="primaryphone" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="email" name="primaryemail" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="primaryemail" className="input-label">Primary Email</label>
+                                    <label htmlFor="propertyname" className="input-label">Property Name</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
                                     <input className="input100" type="text" name="propertyaddress" onChange={this.handleInputChange} required />
@@ -141,19 +126,9 @@ class TenantReg extends Component {
                                     <label htmlFor="zip" className="input-label">ZIP</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="unitnumber" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="number" name="numberofunits" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="unitnumber" className="input-label">Unit Number</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="username" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="username" className="input-label">Username</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="password" className="input-label">Password</label>
+                                    <label htmlFor="numberofunits" className="input-label">Number of Units</label>
                                 </div>
                                 <div class="contact100-form-checkbox">
                                     <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
@@ -176,4 +151,4 @@ class TenantReg extends Component {
     }
 };
 
-export default TenantReg;
+export default NewProperty;
