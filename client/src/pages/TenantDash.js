@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
 
 class TenantDashboard extends Component {
 
@@ -32,19 +31,13 @@ class TenantDashboard extends Component {
                 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" id="repairBtn" href="#">
-                        Repair
+                        Create Request
                     </button>
                 </div>
                 
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn" id="genQBtn" href="#">
-                        General Q's
-                    </button>
-                </div>
-                
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" id="concernBtn" href="#">
-                        Concerns
+                        My Requests
                     </button>
                 </div>
 

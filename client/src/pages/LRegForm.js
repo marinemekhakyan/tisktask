@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from "react";
-// import "./main.css";
-// import "./util.css";
 import axios from "axios";
 
 class LandlordReg extends Component {

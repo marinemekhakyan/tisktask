@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 
-class TiskTasks extends Component  {
+class MyRequests extends Component  {
 
     render() {
         return (
@@ -24,15 +24,13 @@ class TiskTasks extends Component  {
                 <div className="container">
                     <section>
                         <form className="ac-custom ac-list"  autocomplete="off">
-                            <h2 id="myRequestTitle">TiskTasks</h2>
+                            <h2 id="myRequestTitle">My Requests</h2>
                             <ol>
                                 <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>Fix Refrigerator @ 123 Hollywood Blvd.</span></label>
                                     <div className="statusBtns">
                                         <button><a href="#"><img id="approvedSymbol" src="./assets/approvedSymbol.png"/></a></button>
                                         <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png"/></a></button>
                                         <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png"/></a></button>
-                                        <button><a href="#"><img id="deleteSymbol" src="./assets/deleteSymbol.png"/></a></button>
-
                                     </div>
                                 </li>
                                 <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>Replace AC remote control @ 123 Hollywood Blvd.</span></label>
@@ -40,9 +38,9 @@ class TiskTasks extends Component  {
                                         <button><a href="#"><img id="approvedSymbol" src="./assets/approvedSymbol.png"/></a></button>
                                         <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png"/></a></button>
                                         <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png"/></a></button>
-                                        <button><a href="#"><img id="deleteSymbol" src="./assets/deleteSymbol.png"/></a></button>
                                     </div>
                                 </li>
+                                
                             </ol>
                         </form>
                     </section>
@@ -71,5 +69,5 @@ class TiskTasks extends Component  {
 }
 };
 
-export default TiskTasks;
+export default MyRequests;
 

@@ -181,9 +181,11 @@ iframe {
 .newTaskImg{
   margin-right: -11vw;
 }
+
 #newTaskImg{
   height: 10%;
   width: 10%;
+
 }
 
 .otherPropBtn{
