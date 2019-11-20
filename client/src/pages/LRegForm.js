@@ -1,12 +1,19 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 // import "./main.css";
 // import "./util.css";
+import axios from "axios";
 
-
-class LandlordRegistration extends Component {
-
+class LandlordReg extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      first_name: "",
+      last_name: "",
+      phone_number: "",
+      email: "",
+      password: ""
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,86 +26,147 @@ class LandlordRegistration extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    //     // API.login(this.state.username, this.state.password)
-    //     //   .then(res => this.props.history.push('/secure'))
-    //     //   .catch(err => console.error(err));
+    console.log(this.state);
+    axios
+      .post("api/landlord/register/self", this.state)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
   }
 
   render() {
+    const { first_name, last_name, phone_number, email, password } = this.state;
     return (
       <Fragment>
-      <div>
-      <div class="limiter">
-        <div class="container-login100">
-          <div class="wrap-login100">
-            <form className="login100-form validate-form" onSubmit={submitHandler}>
-              <span className="login100-form-title" id="loginTitle">
-                TiskTask
-              </span>
-              <span className="login100-form-logo">
-                <img id="fingerLogo" src="../src/images/fingerLogo.png" />
-              </span>
-              <span class="login100-form-title" id="loginSubTitle1">
-                Don't Get Scolded | Get Stuff Done
-              </span>
-  
-              <div className="input-container">
-                <input id="firstname" type="text" name="firstname" onChange={inputHandler} required />
-                <span className="input-underline"></span>
-                <label htmlFor="firstname" className="input-label">First Name</label>
-              </div>
-  
-              <div className="input-container">
-                <input id="lastname" type="text" name="lastname" onChange={inputHandler} required />
-                <span className="input-underline"></span>
-                <label htmlFor="lastname" className="input-label">Last Name</label>
-              </div>
-  
-              <div className="input-container">
-                <input id="primaryphone" type="text" name="primaryphone" onChange={inputHandler} required />
-                <span className="input-underline"></span>
-                <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
-              </div>
-  
-              <div className="input-container">
-                <input id="primaryemail" type="email" name="primaryemail" onChange={inputHandler} required />
-                <span className="input-underline"></span>
-                <label htmlFor="primaryemail" className="input-label">Primary Email</label>
-              </div>
-  
-              <div className="input-container">
-                <input id="username" type="text" name="username" onChange={inputHandler} value={content.username} required />
-                <span className="input-underline"></span>
-                <label htmlFor="username" className="input-label">Username</label>
-              </div>
-  
-              <div className="input-container">
-                <input id="password" type="password" name="password" onChange={inputHandler} value={content.password} required />
-                <span className="input-underline"></span>
-                <label htmlFor="password" className="input-label">Password</label>
-              </div>
-  
-              <div class="contact100-form-checkbox">
-                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
-                <label class="label-checkbox100" for="ckb1">
-                  Remember me
-                </label>
-              </div>
-              <button className="btn">SUBMIT</button>
-              <div class="text-center p-t-5">
-                <a class="txt1" href="#">
-                  Forgot Password?
-                </a>
-              </div>
-            </form>
+        <video
+          muted
+          autoPlay
+          loop
+          poster="assets/backgroundStill.png"
+          className="fullscreen-bg__video"
+        >
+          <source src="assets/ttBackgroundVid.mp4" type="video/mp4" />
+        </video>
+        <div className="limiter">
+          <div className="container-login100">
+            <div className="wrap-login100">
+              <form
+                onSubmit={this.handleSubmit}
+                className="login100-form validate-form"
+              >
+                <span className="login100-form-title" id="loginTitle">
+                  TiskTask
+                </span>
+                <span className="login100-form-logo">
+                  <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
+                </span>
+                <span className="login100-form-title" id="loginSubTitle1">
+                  Don't Get Scolded | Get Stuff Done
+                </span>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="first_name"
+                    value={first_name}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="first_name" className="input-label">
+                    First Name
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="last_name"
+                    value={last_name}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="last_name" className="input-label">
+                    Last Name
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="phone_number"
+                    value={phone_number}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="phone_number" className="input-label">
+                    Primary Phone
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="email" className="input-label">
+                    Email
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="password" className="input-label">
+                    Password
+                  </label>
+                </div>
+
+                <div className="contact100-form-checkbox">
+                  <input
+                    className="input-checkbox100"
+                    id="ckb1"
+                    type="checkbox"
+                    name="remember-me"
+                  />
+                  <label className="label-checkbox100" htmlFor="ckb1">
+                    Remember me
+                  </label>
+                </div>
+                <button className="login100-form-btn">SUBMIT</button>
+                <div className="text-center p-t-5">
+                  <a className="txt1" href="#">
+                    Forgot Password?
+                  </a>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-    </Fragment>
-    )
+      </Fragment>
+    );
   }
-};
+}
 
-export default LandlordRegistration;
+export default LandlordReg;

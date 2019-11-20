@@ -32,6 +32,22 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
+    property_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+
+    property_address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,

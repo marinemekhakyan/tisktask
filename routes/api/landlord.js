@@ -1,31 +1,31 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { check, validationResult } = require('express-validator');
-const bcrypt = require('bcrypt');
-const db = require('../../models/');
+const { check, validationResult } = require("express-validator");
+const bcrypt = require("bcrypt");
+const db = require("../../models/");
 
 // ROUTE 1 ----------------------------------------------------------
 // @route      POST api/landlord/register/self
 // @desc       landlord registers self
 // @access     public
 router.post(
-  '/register/self',
+  "/register/self",
   [
-    check('first_name', 'First name is required')
+    check("first_name", "First name is required")
       .not()
       .isEmpty(),
-    check('last_name', 'Last name is required')
+    check("last_name", "Last name is required")
       .not()
       .isEmpty(),
-    check('phone_number', 'Please use a valid phone number')
+    check("phone_number", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
       }),
-    check('email', 'Please use a valid email address').isEmail(),
+    check("email", "Please use a valid email address").isEmail(),
     check(
-      'password',
-      'Password must be minimum 12 characters in length'
+      "password",
+      "Password must be minimum 12 characters in length"
     ).isLength({ min: 12 })
   ],
   (req, res) => {
@@ -43,7 +43,7 @@ router.post(
         if (response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'User already exists' }] });
+            .json({ errors: [{ msg: "User already exists" }] });
         }
 
         const password = req.body.password;
@@ -54,7 +54,7 @@ router.post(
           console.log(req.body.password);
           db.Landlords.create(req.body)
             .then(r => {
-              res.send('Landlord saved');
+              res.send("Landlord saved");
               console.log(req.body);
             })
             .catch(err => {
@@ -64,14 +64,14 @@ router.post(
           db.Users.create({
             username: req.body.email,
             hash: hash,
-            role: 'landlord'
+            role: "landlord"
           })
             .then(re => {
-              res.send('Landlord as user saved');
+              res.send("Landlord as user saved");
               console.log({
                 username: req.body.email,
                 hash: hash,
-                role: 'landlord'
+                role: "landlord"
               });
             })
             .catch(er => {
@@ -91,7 +91,7 @@ router.post(
 // @route      POST api/landlord/login
 // @desc       landlord login
 // @access     public
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
   db.Users.findOne({
     where: {
       username: req.body.username
@@ -101,17 +101,17 @@ router.post('/login', (req, res) => {
       if (!response) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'Incorrect username or password' }] });
+          .json({ errors: [{ msg: "Incorrect username or password" }] });
       }
 
       bcrypt
-        .compare(req.body.hash, response.hash)
+        .compare(req.body.password, response.hash)
         .then(match => {
           if (match) {
             req.session.user = response;
-            return res.status(200).send('Landlord successfully logged in');
+            return res.status(200).send("Landlord successfully logged in");
           }
-          return res.status(401).send('Incorrect username or password');
+          return res.status(401).send("Incorrect username or password");
         })
         .catch(err => {
           return res.status(500).send(err.message);
@@ -128,23 +128,23 @@ router.post('/login', (req, res) => {
 // @desc       landlord registers tenant
 // @access     private
 router.post(
-  '/register/tenant',
+  "/register/tenant",
   [
-    check('first_name', 'First name is required')
+    check("first_name", "First name is required")
       .not()
       .isEmpty(),
-    check('last_name', 'Last name is required')
+    check("last_name", "Last name is required")
       .not()
       .isEmpty(),
-    check('primary_phone', 'Please use a valid phone number')
+    check("primary_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
       }),
-    check('primary_email', 'Please use a valid email address').isEmail(),
+    check("primary_email", "Please use a valid email address").isEmail(),
     check(
-      'password',
-      'Temporary password minimum 12 characters is required'
+      "password",
+      "Temporary password minimum 12 characters is required"
     ).isLength({
       min: 12
     })
@@ -164,13 +164,13 @@ router.post(
         if (response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Tenant already exists' }] });
+            .json({ errors: [{ msg: "Tenant already exists" }] });
         }
 
         console.log(req.body);
         db.Tenants.create(req.body)
           .then(r => {
-            res.send('Tenant saved');
+            res.send("Tenant saved");
           })
           .catch(err => {
             console.error(err);
@@ -189,15 +189,15 @@ router.post(
 // @desc       landlord registers property
 // @access     private
 router.post(
-  '/register/property',
+  "/register/property",
   [
-    check('property_name', 'Property name is required')
+    check("property_name", "Property name is required")
       .not()
       .isEmpty(),
-    check('property_address', 'Property address is required')
+    check("property_address", "Property address is required")
       .not()
       .isEmpty(),
-    check('property_phone', 'Please use a valid phone number')
+    check("property_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
@@ -218,13 +218,13 @@ router.post(
         if (response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Property already exists' }] });
+            .json({ errors: [{ msg: "Property already exists" }] });
         }
 
         console.log(req.body);
         db.Properties.create(req.body)
           .then(r => {
-            return res.send('Property saved');
+            return res.send("Property saved");
           })
           .catch(err => {
             console.error(err);
@@ -243,15 +243,15 @@ router.post(
 // @desc       landlord finds property (for updating data)
 // @access     private
 router.get(
-  '/find/property',
+  "/find/property",
   [
-    check('property_name', 'Property name is required')
+    check("property_name", "Property name is required")
       .not()
       .isEmpty(),
-    check('property_address', 'Property address is required')
+    check("property_address", "Property address is required")
       .not()
       .isEmpty(),
-    check('property_phone', 'Please use a valid phone number')
+    check("property_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
@@ -274,7 +274,7 @@ router.get(
         if (!response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Property does not exist' }] });
+            .json({ errors: [{ msg: "Property does not exist" }] });
         }
 
         return res.status(200).send(response);
@@ -291,15 +291,15 @@ router.get(
 // @desc       landlord updates property
 // @access     private
 router.put(
-  '/update/property',
+  "/update/property",
   [
-    check('property_name', 'Property name is required')
+    check("property_name", "Property name is required")
       .not()
       .isEmpty(),
-    check('property_address', 'Property address is required')
+    check("property_address", "Property address is required")
       .not()
       .isEmpty(),
-    check('property_phone', 'Please use a valid phone number')
+    check("property_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
@@ -320,7 +320,7 @@ router.put(
         if (!response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Property does not exist' }] });
+            .json({ errors: [{ msg: "Property does not exist" }] });
         }
 
         console.log(req.body);
@@ -329,7 +329,7 @@ router.put(
           { where: { property_address: req.body.property_address } }
         )
           .then(r => {
-            return res.send('Property updated');
+            return res.send("Property updated");
           })
           .catch(err => {
             console.error(err);
@@ -348,15 +348,15 @@ router.put(
 // @desc       landlord deletes property
 // @access     private
 router.delete(
-  '/delete/property',
+  "/delete/property",
   [
-    check('property_name', 'Property name is required')
+    check("property_name", "Property name is required")
       .not()
       .isEmpty(),
-    check('property_address', 'Property address is required')
+    check("property_address", "Property address is required")
       .not()
       .isEmpty(),
-    check('property_phone', 'Please use a valid phone number')
+    check("property_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
@@ -377,7 +377,7 @@ router.delete(
         if (!response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Property does not exist' }] });
+            .json({ errors: [{ msg: "Property does not exist" }] });
         }
 
         console.log(req.body);
@@ -385,7 +385,7 @@ router.delete(
           where: { property_address: req.body.property_address }
         })
           .then(r => {
-            return res.send('Property deleted');
+            return res.send("Property deleted");
           })
           .catch(err => {
             console.error(err);
@@ -404,20 +404,20 @@ router.delete(
 // @desc       landlord deletes tenant
 // @access     private
 router.delete(
-  '/delete/tenant',
+  "/delete/tenant",
   [
-    check('first_name', 'First name is required')
+    check("first_name", "First name is required")
       .not()
       .isEmpty(),
-    check('last_name', 'Last name is required')
+    check("last_name", "Last name is required")
       .not()
       .isEmpty(),
-    check('primary_phone', 'Please use a valid phone number')
+    check("primary_phone", "Please use a valid phone number")
       .isNumeric()
       .isLength({
         min: 10
       }),
-    check('primary_email', 'Please use a valid email address').isEmail()
+    check("primary_email", "Please use a valid email address").isEmail()
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -434,7 +434,7 @@ router.delete(
         if (!response) {
           return res
             .status(400)
-            .json({ errors: [{ msg: 'Tenant does not exist' }] });
+            .json({ errors: [{ msg: "Tenant does not exist" }] });
         }
 
         console.log(req.body);
@@ -442,7 +442,7 @@ router.delete(
           where: { primary_email: req.body.primary_email }
         })
           .then(r => {
-            return res.send('Tenant deleted');
+            return res.send("Tenant deleted");
           })
           .catch(err => {
             console.error(err);
@@ -460,11 +460,11 @@ router.delete(
 // @route      GET api/landlord/find/tickets
 // @desc       landlord gets all tickets for viewing
 // @access     private
-router.get('/find/tickets', (req, res) => {
+router.get("/find/tickets", (req, res) => {
   db.Tickets.findAll({})
     .then(response => {
       if (!response) {
-        return res.status(400).json({ errors: [{ msg: 'No tickets exist' }] });
+        return res.status(400).json({ errors: [{ msg: "No tickets exist" }] });
       }
 
       return res.status(200).send(response);
@@ -479,7 +479,7 @@ router.get('/find/tickets', (req, res) => {
 // @route      PUT api/landlord/update/ticket
 // @desc       landlord updates ticket status
 // @access     private
-router.put('/update/ticket', (req, res) => {
+router.put("/update/ticket", (req, res) => {
   db.Tickets.findOne({
     where: {
       request: req.body.request
@@ -489,7 +489,7 @@ router.put('/update/ticket', (req, res) => {
       if (!response) {
         return res
           .status(400)
-          .json({ errors: [{ msg: 'Ticket does not exist' }] });
+          .json({ errors: [{ msg: "Ticket does not exist" }] });
       }
 
       console.log(req.body);
@@ -498,12 +498,35 @@ router.put('/update/ticket', (req, res) => {
         { where: { request: req.body.request } }
       )
         .then(r => {
-          return res.send('Ticket updated');
+          return res.send("Ticket updated");
         })
         .catch(err => {
           console.error(err);
           return res.status(500).json({ errors: err });
         });
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
+
+// ROUTE 11 ----------------------------------------------------------
+// @route      GET api/landlord/find/tenants
+// @desc       landlord gets all tenants for viewing
+// @access     private
+router.get("/find/tenants", (req, res) => {
+  db.Tickets.findAll({
+    where: {
+      property_name: req.body.property_name
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res.status(400).json({ errors: [{ msg: "No tenants exist" }] });
+      }
+      console.log(response);
+      return res.status(200).send(response);
     })
     .catch(e => {
       console.error(e);
