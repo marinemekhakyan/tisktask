@@ -67,13 +67,7 @@ class LandlordReg extends Component {
                 <span className="input-underline"></span>
                 <label htmlFor="primaryemail" className="input-label">Primary Email</label>
               </div>
-  
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="text" name="username" onChange={this.handleInputChange} required />
-                <span className="input-underline"></span>
-                <label htmlFor="username" className="input-label">Username</label>
-              </div>
-  
+    
               <div className="wrap-input100 validate-input">
                 <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>

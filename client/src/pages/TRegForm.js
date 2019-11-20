@@ -144,13 +144,7 @@ class TenantReg extends Component {
                                     <input className="input100" type="text" name="unitnumber" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="unitnumber" className="input-label">Unit Number</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="username" onChange={this.handleInputChange} required />
-                                    <span className="input-underline"></span>
-                                    <label htmlFor="username" className="input-label">Username</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
+                                </div>                                <div className="wrap-input100 validate-input">
                                     <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="password" className="input-label">Password</label>
