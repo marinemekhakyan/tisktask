@@ -24,7 +24,6 @@ function App() {
           <Route exact path="/add-new-property" component={NewProperty} />
           <Route exact path="/my-properties" component={Properties} />
           <Route exact path="/tenants-list" component={Tenants} />
-
         </Switch>
       </div>
     </Router>
