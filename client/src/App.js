@@ -12,6 +12,11 @@ import TiskTasks from "./pages/TiskTasks";
 
 
  
+// import Secure from "./pages/Secure";
+// import { PrivateRoute } from "./pages/PrivateRoute";
+
+import "./App.css";
+
 function App() {
   return (
     <Router>

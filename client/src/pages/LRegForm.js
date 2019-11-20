@@ -67,6 +67,7 @@ class LandlordReg extends Component {
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
+
                 <h4 className="h4">Landlord Registration</h4>
       
               <div className="wrap-input100 validate-input">
