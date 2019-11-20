@@ -17,11 +17,11 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/tenant-dashboard" component={TenantDashboard} />
-          {/* <PrivateRoute
+          <Route
             exact
             path="/landlord-dashboard"
             component={LandlordDashboard}
-          /> */}
+          />
           <Route
             exact
             path="/landlord-registration"
