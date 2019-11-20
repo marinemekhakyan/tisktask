@@ -511,4 +511,27 @@ router.put("/update/ticket", (req, res) => {
     });
 });
 
+// ROUTE 11 ----------------------------------------------------------
+// @route      GET api/landlord/find/tenants
+// @desc       landlord gets all tenants for viewing
+// @access     private
+router.get("/find/tenants", (req, res) => {
+  db.Tickets.findAll({
+    where: {
+      property_name: req.body.property_name
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res.status(400).json({ errors: [{ msg: "No tenants exist" }] });
+      }
+      console.log(response);
+      return res.status(200).send(response);
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
+
 module.exports = router;
