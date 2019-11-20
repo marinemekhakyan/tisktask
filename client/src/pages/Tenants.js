@@ -14,7 +14,7 @@ const Tenants = () => (
                     <span className="login100-form-logo">
                         <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
                     </span>
-                    <span className="login100-form-title" id="loginSubTitle1">
+                    <span className="login100-form-title" id="loginSubTitle1"> 
                         Don't Get Scolded | Get Stuff Done
                     </span>
                     <h4 className="h4">Tenant Directory</h4>

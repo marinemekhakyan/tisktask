@@ -9,7 +9,7 @@ import NewProperty from "./pages/NewProperty";
 import Properties from "./pages/Properties";
 import Tenants from "./pages/Tenants";
 
-
+ 
 function App() {
   return (
     <Router>

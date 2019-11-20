@@ -46,7 +46,7 @@ const Properties = () => (
                                     <td>12</td>
                                 </tr>
                             </tbody>
-                        </table>
+                    </table>
                 </div>
             </div>
         </div>

@@ -208,9 +208,9 @@ iframe {
 
 }
 
-th {
+th, td {
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 1em;
 }
 
 .state-dropdown {

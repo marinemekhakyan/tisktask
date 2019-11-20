@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 
-
 class LandlordReg extends Component {
 
   constructor(props) {

@@ -1,6 +1,4 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
-import LandlordReg from "./LRegForm";
 
 class Login extends Component {
 
