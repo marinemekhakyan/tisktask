@@ -67,6 +67,7 @@ class LandlordReg extends Component {
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
+
                 <h4 className="h4">Landlord Registration</h4>
       
               <div className="wrap-input100 validate-input">
@@ -117,6 +118,105 @@ class LandlordReg extends Component {
       </div>  
     </Fragment>
     )
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="first_name"
+                    value={first_name}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="first_name" className="input-label">
+                    First Name
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="last_name"
+                    value={last_name}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="last_name" className="input-label">
+                    Last Name
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="text"
+                    name="phone_number"
+                    value={phone_number}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="phone_number" className="input-label">
+                    Primary Phone
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="email"
+                    name="email"
+                    value={email}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="email" className="input-label">
+                    Email
+                  </label>
+                </div>
+
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100"
+                    type="password"
+                    name="password"
+                    value={password}
+                    onChange={this.handleInputChange}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  <label htmlFor="password" className="input-label">
+                    Password
+                  </label>
+                </div>
+
+                <div className="contact100-form-checkbox">
+                  <input
+                    className="input-checkbox100"
+                    id="ckb1"
+                    type="checkbox"
+                    name="remember-me"
+                  />
+                  <label className="label-checkbox100" htmlFor="ckb1">
+                    Remember me
+                  </label>
+                </div>
+                <button className="login100-form-btn">SUBMIT</button>
+                <div className="text-center p-t-5">
+                  <a className="txt1" href="#">
+                    Forgot Password?
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
   }
 }
 

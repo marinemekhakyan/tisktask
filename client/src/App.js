@@ -10,6 +10,11 @@ import Properties from "./pages/Properties";
 import Tenants from "./pages/Tenants";
 
  
+// import Secure from "./pages/Secure";
+// import { PrivateRoute } from "./pages/PrivateRoute";
+
+import "./App.css";
+
 function App() {
   return (
     <Router>
@@ -24,6 +29,18 @@ function App() {
           <Route exact path="/add-new-property" component={NewProperty} />
           <Route exact path="/my-properties" component={Properties} />
           <Route exact path="/tenants-list" component={Tenants} />
+          <Route
+            exact
+            path="/landlord-dashboard"
+            component={LandlordDashboard}
+          />
+          <Route
+            exact
+            path="/landlord-registration"
+            component={LandlordRegistration}
+          />
+          {/* <Route exact path="/secure" component={Secure} /> */}
+
         </Switch>
       </div>
     </Router>
