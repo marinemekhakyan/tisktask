@@ -195,6 +195,10 @@ iframe {
   width: 15%;
 }
 
+.text-center{
+  padding-bottom: -5vh;
+}
+
 .txt1 {
   font-family: Poppins-Regular;
   font-size: 15px;
@@ -395,8 +399,57 @@ th, td {
   padding-bottom: 1vh;
 }
 
+#ticketInstructions1{
+  font-family: Poppins-Medium;
+  font-size: .8em;
+  color: #e5e5e5;
+  padding-bottom: .5vh;
+  padding-top: 4vh;
+}
+
+#ticketInstructions2{
+  font-family: Poppins-Light;
+  font-size: .8em;
+  color: #e5e5e5;
+  padding-bottom: 4vh;
+}
+
 #welcomeMsg{
   font-size: 1.5em;
+}
+
+#tenantName{
+  font-family: Poppins-Thin;
+  font-size: 3em;
+  padding-bottom: 7vh;
+}
+
+#newRequestBtnTitle{
+  font-family: Poppins-ExtraLight;
+  font-size: .7em;
+  color: #e5e5e5;
+  padding-bottom: 3vh;
+  padding-top: .5vh;
+}
+
+#aboutTitle{
+  font-family: Poppins-Thin;
+  font-size: 3em;
+}
+
+#aboutApprovedSymbol{
+  height: 20%;
+  width: 20%;
+}
+
+#aboutInProgressSymbol{
+  height: 20%;
+  width: 20%;
+}
+
+#aboutOnHoldSymbol{
+  height: 20%;
+  width: 20%;
 }
 
 #userSpan{

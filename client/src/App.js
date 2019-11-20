@@ -8,6 +8,8 @@ import TenantRegistration from "./pages/TRegForm";
 import NewProperty from "./pages/NewProperty";
 import Properties from "./pages/Properties";
 import Tenants from "./pages/Tenants";
+import TiskTasks from "./pages/TiskTasks";
+
 
  
 function App() {
@@ -24,6 +26,7 @@ function App() {
           <Route exact path="/add-new-property" component={NewProperty} />
           <Route exact path="/my-properties" component={Properties} />
           <Route exact path="/tenants-list" component={Tenants} />
+          <Route exact path="/tisktasks" component={TiskTasks} />
         </Switch>
       </div>
     </Router>
