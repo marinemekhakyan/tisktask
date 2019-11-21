@@ -69,27 +69,27 @@ class LandlordReg extends Component {
                 <h4 className="h4">Landlord Registration</h4>
       
               <div className="wrap-input100 validate-input">
-                <input className="input100" type="text" name="firstname" onChange={this.handleSubmit} required />
+                <input className="input100" type="text" name="first_name" onChange={this.handleSubmit} required />
                 <span className="input-underline"></span>
-                <label htmlFor="firstname" className="input-label">First Name</label>
+                <label htmlFor="first_name" className="input-label">First Name</label>
               </div>
   
               <div className="wrap-input100 validate-input">
-                <input className="input100" type="text" name="lastname" onChange={this.handleInputChange} required />
+                <input className="input100" type="text" name="last_name" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
-                <label htmlFor="lastname" className="input-label">Last Name</label>
+                <label htmlFor="last_name" className="input-label">Last Name</label>
               </div>
   
               <div className="wrap-input100 validate-input">
-                <input className="input100" type="number" name="primaryphone" onChange={this.handleInputChange} required />
+                <input className="input100" type="number" name="phone_number" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
-                <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
+                <label htmlFor="phone_number" className="input-label">Primary Phone</label>
               </div>
   
               <div className="wrap-input100 validate-input">
-                <input className="input100" type="email" name="primaryemail" onChange={this.handleInputChange} required />
+                <input className="input100" type="email" name="email" onChange={this.handleInputChange} required />
                 <span className="input-underline"></span>
-                <label htmlFor="primaryemail" className="input-label">Primary Email</label>
+                <label htmlFor="email" className="input-label">Primary Email</label>
               </div>
     
               <div className="wrap-input100 validate-input">

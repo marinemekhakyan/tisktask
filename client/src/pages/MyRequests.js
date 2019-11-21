@@ -8,8 +8,6 @@ class MyRequests extends Component {
     state = {
         resquests: []
     }
-
-
     //     // api call for all the requests from the tenant then
     //     // setState resquests = data   this means in the render we need to do (this.state.request.map(request => render component))
 
@@ -18,7 +16,6 @@ class MyRequests extends Component {
         let unitID = 2
         API.findAllTickets(unitID)
             .then(res => {
-
                 console.log(res)
                 //this.setState({resquests:res.data})
                 this.setState({

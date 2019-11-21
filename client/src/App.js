@@ -10,6 +10,7 @@ import Properties from "./pages/Properties";
 import Tenants from "./pages/Tenants";
 import TiskTasks from "./pages/TiskTasks";
 import MyRequests from "./pages/MyRequests";
+import NewRequest from "./pages/NewRequest";
 
 
  
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/tenants-list" component={Tenants} />
           <Route exact path="/tisktasks" component={TiskTasks} />
           <Route exact path="/my-requests" component={MyRequests} />
+          <Route exact path="/new-request" component={NewRequest} />
         </Switch>
       </div>
     </Router>
