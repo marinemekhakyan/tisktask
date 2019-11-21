@@ -1,6 +1,41 @@
 import React, { Component, Fragment } from "react";
+import Requests from "../components/Comments/Comments";
+import API from "../utils/API";;
 
 class TiskTasks extends Component {
+
+    state = {
+        requests: []
+    }
+
+    componentDidMount() {
+        console.log("before API call")
+        let unitID = 2
+        API.findAllTickets(unitID)
+            .then(res => {
+                console.log(res)
+                //this.setState({resquests:res.data})
+                this.setState({
+                    requests: [{
+                        id: 1,
+                        request: "neighbor's cats are loud",
+                        status: 0
+                    },
+                    {
+                        id: 2,
+                        request: "very squeeky door",
+                        status: 0
+                    }]
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleStatus = (reqID) => {
+        console.log("handlestatus1", reqID)
+        //api call for updating the request based on the id and the type
+    }
+
 
     render() {
         return (
@@ -24,89 +59,19 @@ class TiskTasks extends Component {
                             <div className="container">
                                 <section>
                                     <form className="ac-custom ac-list" autocomplete="off">
-                                        <h2 id="myRequestTitle">TiskTasks</h2>
-                                        <ol>
-                                            <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>Fix Refrigerator @ 123 Hollywood Blvd.</span></label>
-                                                <div className="statusBtns">
-                                                    <button><a href="#"><img id="approvedSymbol" src="./assets/approvedSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="deleteSymbol" src="./assets/deleteSymbol.png" /></a></button>
+                                        <h4 className="h4">TiskTasks</h4>
+                                        {this.state.requests.map(req =>
+                                            <Requests
+                                                key={req.id}
+                                                id={req.id}
+                                                request={req.request}
+                                                handleStatus={this.handleStatus}
 
-                                                </div>
-                                            </li>
-                                            <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>Replace AC remote control @ 123 Hollywood Blvd.</span></label>
-                                                <div className="statusBtns">
-                                                    <button><a href="#"><img id="approvedSymbol" src="./assets/approvedSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="deleteSymbol" src="./assets/deleteSymbol.png" /></a></button>
-                                                </div>
-                                            </li>
-                                        </ol>
+                                            />)}
                                     </form>
                                 </section>
                             </div>
-                            {/* COMMENT BOX */}
-                            <div class="detailBox">
-                                <div class="titleBox" >
-                                    <label>Comments</label>
-                                    {/* <button type="button"><img class="collapsible" src="./images/collapseBtn.png"></button> */}
-                                </div>
-                                <div class="commentBox">
-                                    <p class="taskDescription">Need to Clarify Something?</p>
-                                    <p class="taskDescription1">Leave a Comment Here</p>
-                                </div>
-                                <div class="actionBox">
-                                    <ul class="commentList">
-                                        <li>
-                                            <div class="commenterImage">
-                                                <img src="./assets/tenantMsgIcon2.png" />
-                                            </div>
-                                            <div class="commentText">
-                                                <p class="">Hey! Would it be OK to reschedule for Thursday?</p> <span class="date sub-text">on November 18th, 2019</span>
-
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="commenterImage">
-                                                <img src="./assets/landlordMsgIcon.png" />
-                                            </div>
-                                            <div class="commentText">
-                                                <p class="">Sure thing!</p> <span class="date sub-text">on November 18th, 2019</span>
-
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <form class="form-inline" role="form">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" placeholder="typeth here..." />
-                                        </div>
-                                        <div class="form-group">
-                                            <button class="btn btn-default" type="submit">
-                                                <img id="sendMsgImg" src="./assets/sendBtn.png" />
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            {/* <script>
-                    var coll = document.getElementsByClassName("collapsible");
-                    
-                        var i;
-                        for (i = 0; i < coll.length; i++) {
-                         coll[i].addEventListener("click", function() {
-                            this.classList.toggle("active");
-                            var content = this.nextElementSibling;
-                            if (content.style.display === "block") {
-                            content.style.display = "none";
-                            } else {
-                            content.style.display = "block";
-                            }
-                        });
-                    }
-                </script> */}
-                            <div className="bottomBtns p-t-10">
+                                 <div className="bottomBtns p-t-10">
                                 <button className="newTaskImg">
                                     <a href="/new-request">
                                         <img id="newTaskImg" src="./assets/addTaskSymbol.png" />

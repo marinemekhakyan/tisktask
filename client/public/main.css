@@ -864,6 +864,21 @@ body {
   opacity: 1;
 }
 
+.collapsible {
+  cursor: hover;
+
+}
+
+/* .active, .collapsible:hover {
+  background-color: #555;
+} */
+
+.comment-box-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
 @media (max-width: 992px) {
   .alert-validate::before {
     visibility: visible;

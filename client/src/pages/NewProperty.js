@@ -34,6 +34,7 @@ class NewProperty extends Component {
           .catch(err => {
             if (err) throw err;
           });
+          this.props.history.push();
 
 
         //     // API.login(this.state.username, this.state.password)

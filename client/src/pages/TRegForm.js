@@ -39,6 +39,7 @@ class TenantReg extends Component {
           .catch(err => {
             if (err) throw err;
           });
+          this.props.history.push();
 
         //     // API.login(this.state.username, this.state.password)
         //     //   .then(res => this.props.history.push('/secure'))

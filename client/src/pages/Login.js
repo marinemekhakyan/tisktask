@@ -32,6 +32,7 @@ class Login extends Component {
       .catch(err => {
         if (err) throw err;
       });
+      this.props.history.push();
   }
 
   render() {

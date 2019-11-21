@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Requests from "../components/Requests/Requests";
+import Requests from "../components/Comments/Comments";
 import API from "../utils/API";
 
 
@@ -23,12 +23,12 @@ class MyRequests extends Component {
                 this.setState({
                     requests: [{
                         id: 1,
-                        request: "the fridge is broken",
+                        request: "neightbor's cats are loud",
                         status: 0
                     },
                     {
                         id: 2,
-                        request: "the door is broken",
+                        request: "very squeeky door",
                         status: 0
                     }]
                 })
