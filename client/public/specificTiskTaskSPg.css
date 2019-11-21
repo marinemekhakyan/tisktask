@@ -186,6 +186,11 @@
 	stroke-width: 4px;
 }
 
+.ac-custom h2 {
+    font-size: 3em;
+    font-weight: 300;
+}
+
 /* Media Queries */
 @media screen and (max-width: 50em) {
 	section {
