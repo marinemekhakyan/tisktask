@@ -30,6 +30,30 @@ router.post(
       });
   }
 );
+router.get(
+  '/:unitid',
+  [
+    check('request_type', 'Request type is required')
+      .not()
+      .isEmpty()
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(422).json({ errors: errors.array() });
+    }
+
+    console.log(req.params);
+    db.Tickets.find({UnitId:req.params.unitid})
+      .then(ticketsDB => {
+        res.json(ticketsDB)
+      })
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ errors: err });
+      });
+  }
+)
 
 // for testing route connection
 // router.get('/', (req, res) => {

@@ -1,7 +1,47 @@
 import React, { Component, Fragment } from "react";
-
+import Requests from "../components/Requests/Requests";
+import API from "../utils/API";
 class MyRequests extends Component {
 
+
+    /// state (include the array with all the request )
+    state = {
+        resquests: []
+    }
+
+
+    //     // api call for all the requests from the tenant then
+    //     // setState resquests = data   this means in the render we need to do (this.state.request.map(request => render component))
+
+    componentDidMount() {
+        console.log("before API call")
+        let unitID = 2
+        API.findAllTickets(unitID)
+            .then(res => {
+
+                console.log(res)
+                //this.setState({resquests:res.data})
+                this.setState({
+                    resquests: [{
+                        id: 1,
+                        request: "the fridge is broken",
+                        status: 0
+                    },
+                    {
+                        id: 2,
+                        request: "the door is broken",
+                        status: 0
+                    }]
+                })
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleStatus = (reqID) => {
+        console.log("handlestatus1", reqID)
+        //api call for updating the request based on the id and the type
+    }
+    // }
     render() {
         return (
             <Fragment>
@@ -25,61 +65,14 @@ class MyRequests extends Component {
                                 <section>
                                     <form className="ac-custom ac-list" autocomplete="off">
                                         <h2 id="myRequestTitle">My Requests</h2>
-                                        <ol>
-                                            <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>Fix Refrigerator @ 123 Hollywood Blvd.</span></label>
-                                                <div className="statusBtns">
-                                                    <button><a href="#"><img id="approvedSymbol" src="./assets/approvedSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png" /></a></button>
-                                                    <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" /></a></button>
-                                                </div>
+                                        {this.state.resquests.map(req =>
+                                            <Requests
+                                                key={req.id}
+                                                id={req.id}
+                                                request={req.request}
+                                                handleStatus={this.handleStatus}
 
-                                                {/* COMMENT BOX */}
-
-                                                <div class="detailBox">
-                                                    <div class="titleBox" >
-                                                        <label>Comments</label>
-                                                        {/* <button type="button"><img class="collapsible" src="./images/collapseBtn.png"></button> */}
-                                                    </div>
-                                                    <div class="commentBox">
-                                                        <p class="taskDescription">Need to Clarify Something?</p>
-                                                        <p class="taskDescription1">Leave a Comment Here</p>
-                                                    </div>
-                                                    <div class="actionBox">
-                                                        <ul class="commentList">
-                                                            <li>
-                                                                <div class="commenterImage">
-                                                                    <img src="./assets/tenantMsgIcon2.png" />
-                                                                </div>
-                                                                <div class="commentText">
-                                                                    <p class="">Hey! Would it be OK to reschedule for Thursday?</p> <span class="date sub-text">on November 18th, 2019</span>
-
-                                                                </div>
-                                                            </li>
-                                                            <li>
-                                                                <div class="commenterImage">
-                                                                    <img src="./assets/landlordMsgIcon.png" />
-                                                                </div>
-                                                                <div class="commentText">
-                                                                    <p class="">Sure thing!</p> <span class="date sub-text">on November 18th, 2019</span>
-
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                        <form class="form-inline" role="form">
-                                                            <div class="form-group">
-                                                                <input class="form-control" type="text" placeholder="typeth here..." />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <button class="btn btn-default">
-                                                                    <img id="sendMsgImg" src="./assets/sendBtn.png" />
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                        </ol>
+                                            />)}
                                     </form>
                                 </section>
                             </div>

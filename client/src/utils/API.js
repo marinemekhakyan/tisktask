@@ -14,4 +14,6 @@ export default {
   
   logout: () => fetch("/api/auth/", { method: 'DELETE' }),
   validateCookie: sid => fetch(`/api/auth/session/${encodeURIComponent(sid)}`),
+  
+  findAllTickets:(id) => fetch("api/ticket/" + id, {method:"GET"}),
 };
