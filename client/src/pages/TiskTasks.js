@@ -83,7 +83,7 @@ class TiskTasks extends Component {
                                             <input class="form-control" type="text" placeholder="typeth here..." />
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn btn-default">
+                                            <button class="btn btn-default" type="submit">
                                                 <img id="sendMsgImg" src="./assets/sendBtn.png" />
                                             </button>
                                         </div>
@@ -108,7 +108,7 @@ class TiskTasks extends Component {
                 </script> */}
                             <div className="bottomBtns p-t-10">
                                 <button className="newTaskImg">
-                                    <a href="#">
+                                    <a href="/new-request">
                                         <img id="newTaskImg" src="./assets/addTaskSymbol.png" />
                                         <p className="login100-form-title" id="newRequestBtnTitle">
                                             New Request
@@ -131,4 +131,3 @@ class TiskTasks extends Component {
 };
 
 export default TiskTasks;
-

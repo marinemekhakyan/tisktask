@@ -1,10 +1,17 @@
 import React, { Component, Fragment } from "react";
-
+import axios from "axios";
 
 class NewProperty extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            propertyname: "",
+            street: "",
+            zip: "",
+            numberofunits: ""
+        };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +24,17 @@ class NewProperty extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        console.log(this.state);
+        axios
+          .post("api/landlord/register/property", this.state)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+          .catch(err => {
+            if (err) throw err;
+          });
+
 
         //     // API.login(this.state.username, this.state.password)
         //     //   .then(res => this.props.history.push('/secure'))
@@ -49,7 +67,7 @@ class NewProperty extends Component {
                                     <label htmlFor="propertyname" className="input-label">Property Name</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="propertyaddress" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="text" name="street" onChange={this.handleInputChange} required />
                                     <span className="input-underline">Street Name</span>
                                 </div>
                                 <div className="wrap-input100 validate-input">
@@ -136,7 +154,7 @@ class NewProperty extends Component {
                                         Remember me
                                     </label>
                                 </div>
-                                <button className="login100-form-btn">SUBMIT</button>
+                                <button className="login100-form-btn" type="submit">SUBMIT</button>
                                 <div class="text-center p-t-5">
                                     <a class="txt1" href="#">
                                         Forgot Password?

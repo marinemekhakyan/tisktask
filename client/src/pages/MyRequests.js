@@ -1,15 +1,17 @@
 import React, { Component, Fragment } from "react";
 import Requests from "../components/Requests/Requests";
 import API from "../utils/API";
+
+
 class MyRequests extends Component {
 
 
     /// state (include the array with all the request )
     state = {
-        resquests: []
+        requests: []
     }
     //     // api call for all the requests from the tenant then
-    //     // setState resquests = data   this means in the render we need to do (this.state.request.map(request => render component))
+    //     // setState requests = data   this means in the render we need to do (this.state.request.map(request => render component))
 
     componentDidMount() {
         console.log("before API call")
@@ -19,7 +21,7 @@ class MyRequests extends Component {
                 console.log(res)
                 //this.setState({resquests:res.data})
                 this.setState({
-                    resquests: [{
+                    requests: [{
                         id: 1,
                         request: "the fridge is broken",
                         status: 0
@@ -62,7 +64,7 @@ class MyRequests extends Component {
                                 <section>
                                     <form className="ac-custom ac-list" autocomplete="off">
                                         <h2 id="myRequestTitle">My Requests</h2>
-                                        {this.state.resquests.map(req =>
+                                        {this.state.requests.map(req =>
                                             <Requests
                                                 key={req.id}
                                                 id={req.id}

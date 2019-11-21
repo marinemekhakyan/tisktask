@@ -103,7 +103,7 @@ class Login extends Component {
                   </label>
                 </div> 
                 <div className="container-login100-form-btn">
-                  <button className="login100-form-btn">Login</button>
+                  <button className="login100-form-btn" type="submit">Login</button>
                 </div>
                 <div className="text-center p-t-90">
                   <a className="txt1" href="/landlord-registration">

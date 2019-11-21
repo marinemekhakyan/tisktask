@@ -104,7 +104,7 @@ class LandlordReg extends Component {
                   Remember me
                 </label>
               </div>
-              <button className="login100-form-btn">SUBMIT</button>
+              <button className="login100-form-btn" type="submit">SUBMIT</button>
               <div class="text-center p-t-5">
                 <a class="txt1" href="#">
                   Forgot Password?

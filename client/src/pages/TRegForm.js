@@ -1,10 +1,21 @@
 import React, { Component, Fragment } from "react";
+import axios from 'axios';
 
 
 class TenantReg extends Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            first_name: "",
+            last_name: "",
+            street: "",
+            zip: "",
+            phone_number: "",
+            email: "",
+            password: ""
+          };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,6 +28,17 @@ class TenantReg extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        event.preventDefault();
+        console.log(this.state);
+        axios
+          .post("api/landlord/register/tenant", this.state)
+          .then(res => {
+            console.log(res);
+            console.log(res.data);
+          })
+          .catch(err => {
+            if (err) throw err;
+          });
 
         //     // API.login(this.state.username, this.state.password)
         //     //   .then(res => this.props.history.push('/secure'))
@@ -44,27 +66,27 @@ class TenantReg extends Component {
                                 </span>
                                 <h4 className="h4">Tenant Registration</h4>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="firstname" onChange={this.handleSubmit} required />
+                                    <input className="input100" type="text" name="first_name" onChange={this.handleSubmit} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="firstname" className="input-label">First Name</label>
+                                    <label htmlFor="first_name" className="input-label">First Name</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="lastname" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="text" name="last_name" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="lastname" className="input-label">Last Name</label>
+                                    <label htmlFor="last_name" className="input-label">Last Name</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="number" name="primaryphone" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="number" name="phone_number" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
+                                    <label htmlFor="phone_number" className="input-label">Primary Phone</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="email" name="primaryemail" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="email" name="email" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="primaryemail" className="input-label">Primary Email</label>
+                                    <label htmlFor="email" className="input-label">Primary Email</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="propertyaddress" onChange={this.handleInputChange} required />
+                                    <input className="input100" type="text" name="street" onChange={this.handleInputChange} required />
                                     <span className="input-underline">Street Name</span>
                                 </div>
                                 <div className="wrap-input100 validate-input">
@@ -144,7 +166,8 @@ class TenantReg extends Component {
                                     <input className="input100" type="text" name="unitnumber" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="unitnumber" className="input-label">Unit Number</label>
-                                </div>                                <div className="wrap-input100 validate-input">
+                                </div>                                
+                                <div className="wrap-input100 validate-input">
                                     <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="password" className="input-label">Password</label>
@@ -155,7 +178,7 @@ class TenantReg extends Component {
                                         Remember me
                                     </label>
                                 </div>
-                                <button className="login100-form-btn">SUBMIT</button>
+                                <button className="login100-form-btn" type="submit">SUBMIT</button>
                                 <div class="text-center p-t-5">
                                     <a class="txt1" href="#">
                                         Forgot Password?

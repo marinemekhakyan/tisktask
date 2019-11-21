@@ -15,7 +15,6 @@ class NewRequest extends Component {
           };
 
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSelectChange = this.handleSelectChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -24,16 +23,11 @@ class NewRequest extends Component {
         this.setState({ [name]: value });
     }
 
-    handleSelectChange(event) {
-        const { name, value } = event.target;
-        this.setState({ [name]: value });
-    }
-
     handleSubmit(event) {
         event.preventDefault();
         console.log(this.state);
         axios
-          .post("api/tickets/", this.state)
+          .post("api/tenant/create/ticket", this.state)
           .then(res => {
             console.log(res);
             console.log(res.data);
@@ -152,7 +146,7 @@ class NewRequest extends Component {
                                     <label htmlFor="unit" className="input-label">Unit Number</label>
                                 </div>
                                 <div className="wrap-input100 validate-input">
-                                    <p className="input100" type="number" name="availability" onChange={this.handleSelectChange} required />
+                                    <p className="input100" type="number" name="availability" onChange={this.handleInputChange} required />
                                     <label htmlFor="availability" className="input-label">Availability</label>
 
                                     <div className="form-check form-check-inline">
@@ -186,7 +180,7 @@ class NewRequest extends Component {
                                 </div>
 
                                 <div className="wrap-input100 validate-input">
-                                <p className="input100" name="visit" onChange={this.handleSelectChange} required />
+                                <p className="input100" name="visit" onChange={this.handleInputChange} required />
                                     <label htmlFor="visit" className="input-label">Are you ok if someone enters the premises without you?</label>
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="yes" />
@@ -203,7 +197,7 @@ class NewRequest extends Component {
                                         Remember me
                                     </label>
                                 </div>
-                                <button className="login100-form-btn">SUBMIT</button>
+                                <button className="login100-form-btn" type="submit">SUBMIT</button>
                                 <div className="text-center p-t-5">
                                     <a className="txt1" href="#">
                                         Forgot Password?

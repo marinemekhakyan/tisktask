@@ -31,21 +31,21 @@ class LandlordDashboard extends Component {
                 </h3>
                 
                 <div className="container-login100-form-btn">
-                    <button className="login100-form-btn" id="repairBtn" href="#">
+                    <a href="/tisktasks"><button className="login100-form-btn" id="repairBtn">
                         TiskTasks
-                    </button>
+                    </button></a>
                 </div>
                 
                 <div className="container-login100-form-btn">
-                    <button className="login100-form-btn" id="genQBtn" href="#">
+                    <a href="tenant-registration"><button className="login100-form-btn" id="genQBtn" href="#">
                         New Tenant
-                    </button>
+                    </button></a>
                 </div>
                 
                 <div className="container-login100-form-btn">
-                    <button className="login100-form-btn" id="concernBtn" href="#">
+                    <a href="/add-new-property"><button className="login100-form-btn" id="concernBtn" href="#">
                         New Property
-                    </button>
+                    </button></a>
                 </div>
 
                 <div className="text-center p-t-80">
