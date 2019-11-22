@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import Requests from "../components/Comments/Comments";
+import Comments from "../components/Comments/Comments";
 import API from "../utils/API";
 
 
@@ -65,7 +65,7 @@ class MyRequests extends Component {
                                     <form className="ac-custom ac-list" autocomplete="off">
                                         <h2 id="myRequestTitle">My Requests</h2>
                                         {this.state.requests.map(req =>
-                                            <Requests
+                                            <Comments
                                                 key={req.id}
                                                 id={req.id}
                                                 request={req.request}

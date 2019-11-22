@@ -41,7 +41,7 @@ class Requests extends Component {
                         <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png" /></a></button>
                         <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" /></a></button>
                     </div>
-    
+                    </li>
                     {/* COMMENT BOX */}
     
                     <div className="detailBox">
@@ -88,25 +88,8 @@ class Requests extends Component {
                         </div>
                         </div>
                     </div>
-                </li>
-    
             </ol>
             </div >
-    
-                        // var coll = document.getElementsByClassName("collapsible");
-                        
-                        //     var i;
-                        //     for (i = 0; i < coll.length; i++) {
-                        //      coll[i].addEventListener("click", function() {
-                        //         this.classList.toggle("active");
-                        //         var content = this.nextElementSibling;
-                        //         if (content.style.display === "block") {
-                        //         content.style.display = "none";
-                        //         } else {
-                        //         content.style.display = "block";
-                        //         }
-                        //     });
-                        // }
     
     
         )
