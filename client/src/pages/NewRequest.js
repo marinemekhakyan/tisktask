@@ -202,7 +202,7 @@ class NewRequest extends Component {
                                 <div className="text-center p-t-5">
                                     <a className="txt1" href="#">
                                         Forgot Password?
-                                    </a>
+                                    </a> 
                                 </div>
                             </form>
                         </div>

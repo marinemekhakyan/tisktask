@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const coll = document.getElementsByClassName("collapsible");
 
     let i;
