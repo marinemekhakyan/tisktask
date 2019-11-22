@@ -8,10 +8,8 @@ import TenantRegistration from "./pages/TRegForm";
 import NewProperty from "./pages/NewProperty";
 import Properties from "./pages/Properties";
 import Tenants from "./pages/Tenants";
-
- 
-// import Secure from "./pages/Secure";
-// import { PrivateRoute } from "./pages/PrivateRoute";
+import { PrivateLandlordRoute } from "./utils/PrivateLandlordRoute";
+import { PrivateTenantRoute } from "./utils/PrivateTenantRoute";
 
 import "./App.css";
 
@@ -22,14 +20,12 @@ function App() {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/tenant-dashboard" component={TenantDashboard} />
-          <Route exact path="/landlord-dashboard" component={LandlordDashboard} />
-          <Route exact path="/landlord-registration" component={LandlordRegistration} />
-          <Route exact path="/tenant-registration" component={TenantRegistration} />
-          <Route exact path="/add-new-property" component={NewProperty} />
-          <Route exact path="/my-properties" component={Properties} />
-          <Route exact path="/tenants-list" component={Tenants} />
-          <Route
+          <PrivateTenantRoute
+            exact
+            path="/tenant-dashboard"
+            component={TenantDashboard}
+          />
+          <PrivateLandlordRoute
             exact
             path="/landlord-dashboard"
             component={LandlordDashboard}
@@ -39,8 +35,33 @@ function App() {
             path="/landlord-registration"
             component={LandlordRegistration}
           />
-          {/* <Route exact path="/secure" component={Secure} /> */}
-
+          {/* <PrivateLandlordRoute
+            exact
+            path="/tenant-registration"
+            component={TenantRegistration}
+          /> */}
+          <Route
+            exact
+            path="/tenant-registration"
+            component={TenantRegistration}
+          />
+          {/* <PrivateLandlordRoute
+            exact
+            path="/add-new-property"
+            component={NewProperty}
+          /> */}
+          <Route exact path="/add-new-property" component={NewProperty} />
+          <PrivateLandlordRoute
+            exact
+            path="/my-properties"
+            component={Properties}
+          />
+          <PrivateLandlordRoute
+            exact
+            path="/tenants-list"
+            component={Tenants}
+          />
+          <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>
       </div>
     </Router>

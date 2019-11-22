@@ -197,11 +197,10 @@ router.post(
     check("property_address", "Property address is required")
       .not()
       .isEmpty(),
-    check("property_phone", "Please use a valid phone number")
+    check("number_of_units", "Please use a valid phone number")
       .isNumeric()
-      .isLength({
-        min: 10
-      })
+      .not()
+      .isEmpty()
   ],
   (req, res) => {
     const errors = validationResult(req);
