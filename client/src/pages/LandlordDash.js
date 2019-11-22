@@ -26,6 +26,17 @@ class LandlordDashboard extends Component {
     }
   };
 
+  tiskTaskLink = () => {
+    // if (Auth.isAuthenticatedAsLandlord()) {
+    //   console.log(Auth.isAuthenticatedAsLandlord());
+    //   this.props.history.push("/tisktasks");
+    // } else {
+    //   this.props.history.push("/");
+    // }
+    // below for dev, above for production
+    this.props.history.push("/tisktasks");
+  };
+
   render() {
     return (
       <Fragment>
