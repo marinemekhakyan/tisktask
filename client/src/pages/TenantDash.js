@@ -8,6 +8,28 @@ class TenantDashboard extends Component {
     console.log(Auth.isAuthenticatedAsTenant());
   }
 
+  newRequestLink = () => {
+    // if (Auth.isAuthenticatedAsLandlord()) {
+    //   console.log(Auth.isAuthenticatedAsLandlord());
+    //   this.props.history.push("/tisktasks");
+    // } else {
+    //   this.props.history.push("/");
+    // }
+    // below for dev, above for production
+    this.props.history.push("/new-request");
+  };
+
+  myRequestsLink = () => {
+    // if (Auth.isAuthenticatedAsLandlord()) {
+    //   console.log(Auth.isAuthenticatedAsLandlord());
+    //   this.props.history.push("/tisktasks");
+    // } else {
+    //   this.props.history.push("/");
+    // }
+    // below for dev, above for production
+    this.props.history.push("/my-requests");
+  };
+
   render() {
     return (
       <Fragment>
@@ -45,14 +67,22 @@ class TenantDashboard extends Component {
                 <span id="userSpan"></span>
               </h3>
 
-              <div class="container-login100-form-btn">
-                <button class="login100-form-btn" id="repairBtn" href="/new-request">
+              <div className="container-login100-form-btn">
+                <button
+                  onClick={this.newRequestLink}
+                  className="login100-form-btn"
+                  id="repairBtn"
+                >
                   Create Request
                 </button>
               </div>
 
-              <div class="container-login100-form-btn">
-                <button class="login100-form-btn" id="genQBtn" href="/my-requests">
+              <div className="container-login100-form-btn">
+                <button
+                  onClick={this.myRequestsLink}
+                  className="login100-form-btn"
+                  id="genQBtn"
+                >
                   My Requests
                 </button>
               </div>
