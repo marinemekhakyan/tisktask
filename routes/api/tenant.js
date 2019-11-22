@@ -136,30 +136,17 @@ router.post(
       .isEmpty()
   ],
   (req, res) => {
-    db.Tickets.findOne({
-      where: {
-        request: req.body.request
-      }
-    })
-      .then(response => {
-        if (response) {
-          return res
-            .status(400)
-            .json({ errors: [{ msg: "Request already exists" }] });
-        }
-
-        db.Tickets.create(req.body)
-          .then(r => {
-            return res.send("Ticket created");
-          })
-          .catch(err => {
-            console.error(err);
-            return res.status(500).json({ errors: err });
-          });
+    const ticket = {
+      request: req.body.description,
+      UnitId: req.body.unit
+    }
+    db.Tickets.create(ticket)
+      .then(r => {
+        return res.send("Ticket created");
       })
-      .catch(e => {
-        console.error(e);
-        return res.status(500).json({ errors: e });
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ errors: err });
       });
   }
 );

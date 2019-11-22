@@ -75,36 +75,30 @@ class LandlordDashboard extends Component {
               </h3>
 
               <div className="container-login100-form-btn">
-                <button
-                  onClick={this.tiskTaskLink}
-                  className="login100-form-btn"
-                  id="repairBtn"
-                  href="#"
-                >
+                <a href="/tisktasks"><button className="login100-form-btn" id="repairBtn">
                   TiskTasks
-                </button>
+                </button></a>
               </div>
 
               <div className="container-login100-form-btn">
-                <button
+                <a href="tenant-registration"><button
                   onClick={this.newTenantLink}
                   className="login100-form-btn"
                   id="genQBtn"
                   href="#"
                 >
                   New Tenant
-                </button>
+                </button></a>
               </div>
 
               <div className="container-login100-form-btn">
-                {/* <a href="/add-new-property"> */}
-                <button
+                <a href="add-new-property"><button
                   onClick={this.newPropertyLink}
                   className="login100-form-btn"
                   id="concernBtn"
                 >
                   New Property
-                </button>
+                </button></a>
                 {/* </a> */}
               </div>
 
