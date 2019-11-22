@@ -16,10 +16,19 @@ class TenantReg extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    //     // API.login(this.state.username, this.state.password)
-    //     //   .then(res => this.props.history.push('/secure'))
-    //     //   .catch(err => console.error(err));
+    console.log(this.state);
+    axios
+      .post("api/landlord/register/tenant", this.state)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        if (res) {
+          this.props.history.push("/");
+        }
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
   }
 
   render() {
