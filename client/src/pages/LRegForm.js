@@ -75,81 +75,86 @@ class LandlordReg extends Component {
                   Don't Get Scolded | Get Stuff Done
                 </span>
 
-                <h4 className="h4">Landlord Registration</h4>
+                <h4 className="h4 mb-5">Landlord Registration</h4>
 
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
                     name="first_name"
                     value={first_name}
                     onChange={this.handleInputChange}
+                    placeholder={"First Name"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="first_name" className="input-label">
+                  {/* <label htmlFor="first_name" className="input-label">
                     First Name
-                  </label>
+                  </label> */}
                 </div>
 
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
                     name="last_name"
                     value={last_name}
                     onChange={this.handleInputChange}
+                    placeholder={"Last Name"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="last_name" className="input-label">
+                  {/* <label htmlFor="last_name" className="input-label">
                     Last Name
-                  </label>
+                  </label> */}
                 </div>
 
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
                     name="phone_number"
                     value={phone_number}
                     onChange={this.handleInputChange}
+                    placeholder={"Primary Phone"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="phone_number" className="input-label">
+                  {/* <label htmlFor="phone_number" className="input-label">
                     Primary Phone
-                  </label>
+                  </label> */}
                 </div>
 
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="email"
                     name="email"
                     value={email}
                     onChange={this.handleInputChange}
+                    placeholder={"Email"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="email" className="input-label">
+                  {/* <label htmlFor="email" className="input-label">
                     Email
-                  </label>
+                  </label> */}
                 </div>
 
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="password"
                     name="password"
                     value={password}
                     onChange={this.handleInputChange}
+                    placeholder={"Password"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="password" className="input-label">
+                  {/* <label htmlFor="password" className="input-label">
                     Password
-                  </label>
+                  </label> */}
                 </div>
 
                 <div className="contact100-form-checkbox">

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Properties = sequelize.define('Properties', {
+  var Properties = sequelize.define("Properties", {
     property_name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
-    property_phone: {
+    number_of_units: {
       type: DataTypes.INTEGER,
       allowNull: false
     }

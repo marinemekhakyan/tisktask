@@ -240,20 +240,20 @@ class TenantReg extends Component {
                     Password
                   </label>
                 </div>
-                <div class="contact100-form-checkbox">
+                <div className="contact100-form-checkbox">
                   <input
-                    class="input-checkbox100"
+                    className="input-checkbox100"
                     id="ckb1"
                     type="checkbox"
                     name="remember-me"
                   />
-                  <label class="label-checkbox100" for="ckb1">
+                  <label className="label-checkbox100" htmlFor="ckb1">
                     Remember me
                   </label>
                 </div>
                 <button className="login100-form-btn">SUBMIT</button>
-                <div class="text-center p-t-5">
-                  <a class="txt1" href="/landlord-dashboard">
+                <div className="text-center p-t-5">
+                  <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?
                   </a>
                 </div>

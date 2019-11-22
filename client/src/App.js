@@ -35,16 +35,22 @@ function App() {
             path="/landlord-registration"
             component={LandlordRegistration}
           />
-          <PrivateLandlordRoute
+          {/* <PrivateLandlordRoute
+            exact
+            path="/tenant-registration"
+            component={TenantRegistration}
+          /> */}
+          <Route
             exact
             path="/tenant-registration"
             component={TenantRegistration}
           />
-          <PrivateLandlordRoute
+          {/* <PrivateLandlordRoute
             exact
             path="/add-new-property"
             component={NewProperty}
-          />
+          /> */}
+          <Route exact path="/add-new-property" component={NewProperty} />
           <PrivateLandlordRoute
             exact
             path="/my-properties"

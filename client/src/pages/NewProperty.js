@@ -1,8 +1,15 @@
 import React, { Component, Fragment } from "react";
+import axios from "axios";
 
 class NewProperty extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      property_name: "",
+      property_address: "",
+      number_of_units: ""
+    };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -15,10 +22,19 @@ class NewProperty extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-
-    //     // API.login(this.state.username, this.state.password)
-    //     //   .then(res => this.props.history.push('/secure'))
-    //     //   .catch(err => console.error(err));
+    console.log(this.state);
+    axios
+      .post("api/landlord/register/property", this.state)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+        if (res) {
+          this.props.history.push("/landlord-dashboard");
+        }
+      })
+      .catch(err => {
+        if (err) throw err;
+      });
   }
 
   render() {
@@ -53,36 +69,39 @@ class NewProperty extends Component {
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
-                <h4 className="h4">Add New Property</h4>
+                <h4 className="h4 mb-5">Add New Property</h4>
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
-                    name="propertyname"
-                    onChange={this.handleSubmit}
+                    name="property_name"
+                    onChange={this.handleInputChange}
+                    placeholder={"Property Name"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="propertyname" className="input-label">
+                  {/* <label htmlFor="propertyname" className="input-label">
                     Property Name
-                  </label>
+                  </label> */}
                 </div>
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
-                    name="propertyaddress"
+                    name="property_address"
                     onChange={this.handleInputChange}
+                    placeholder={"Property Address"}
                     required
                   />
-                  <span className="input-underline">Street Name</span>
+                  {/* <span className="input-underline">Street Name</span> */}
                 </div>
-                <div className="wrap-input100 validate-input">
+                {/* <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
                     name="city"
                     onChange={this.handleInputChange}
+                    placeholder={"City"}
                     required
                   />
                   <span className="input100"></span>
@@ -91,7 +110,7 @@ class NewProperty extends Component {
                   </label>
                 </div>
                 <div className="wrap-input100 validate-input">
-                  <label htmlFor="state" className="input-label">
+                  <label htmlFor="state" className="input-label text-white">
                     State
                   </label>
                   <input
@@ -164,31 +183,33 @@ class NewProperty extends Component {
                 </div>
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="number"
                     name="zip"
                     onChange={this.handleInputChange}
+                    placeholder={"ZIP"}
                     required
                   />
                   <span className="input-underline"></span>
                   <label htmlFor="zip" className="input-label">
                     ZIP
                   </label>
-                </div>
+                </div> */}
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="number"
-                    name="numberofunits"
+                    name="number_of_units"
                     onChange={this.handleInputChange}
+                    placeholder={"Number of Units"}
                     required
                   />
-                  <span className="input-underline"></span>
-                  <label htmlFor="numberofunits" className="input-label">
+                  <span className="input-underline mb-5"></span>
+                  {/* <label htmlFor="numberofunits" className="input-label">
                     Number of Units
-                  </label>
+                  </label> */}
                 </div>
-                <div className="contact100-form-checkbox">
+                {/* <div className="contact100-form-checkbox">
                   <input
                     className="input-checkbox100"
                     id="ckb1"
@@ -197,14 +218,16 @@ class NewProperty extends Component {
                   />
                   <label className="label-checkbox100" htmlFor="ckb1">
                     Remember me
-                  </label>
-                </div>
-                <button className="login100-form-btn">SUBMIT</button>
-                <div className="text-center p-t-5">
+                  </label> */}
+                {/* </div> */}
+                <button className="login100-form-btn text-center m-auto">
+                  SUBMIT
+                </button>
+                {/* <div className="text-center p-t-5">
                   <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?
                   </a>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>

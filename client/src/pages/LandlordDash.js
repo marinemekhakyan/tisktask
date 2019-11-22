@@ -17,6 +17,15 @@ class LandlordDashboard extends Component {
     }
   };
 
+  newTenantLink = () => {
+    if (Auth.isAuthenticatedAsLandlord()) {
+      console.log(Auth.isAuthenticatedAsLandlord());
+      this.props.history.push("/tenant-registration");
+    } else {
+      this.props.history.push("/");
+    }
+  };
+
   render() {
     return (
       <Fragment>
@@ -61,7 +70,12 @@ class LandlordDashboard extends Component {
               </div>
 
               <div className="container-login100-form-btn">
-                <button className="login100-form-btn" id="genQBtn" href="#">
+                <button
+                  onClick={this.newTenantLink}
+                  className="login100-form-btn"
+                  id="genQBtn"
+                  href="#"
+                >
                   New Tenant
                 </button>
               </div>
