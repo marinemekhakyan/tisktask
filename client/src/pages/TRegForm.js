@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import axios from 'axios';
 
 class TenantReg extends Component {
   constructor(props) {

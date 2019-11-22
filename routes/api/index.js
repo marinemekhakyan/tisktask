@@ -8,6 +8,6 @@ const ticketRoutes = require("./tickets");
 router.use("/auth", authRoutes);
 router.use("/tenant", tenantRoutes);
 router.use("/landlord", landlordRoutes);
-router.use("/ticket", ticketRoutes);
+router.use("/unit", ticketRoutes);
 
 module.exports = router;
