@@ -191,17 +191,17 @@ router.post(
 router.post(
   "/register/property",
   [
-    check("property_name", "Property name is required")
-      .not()
-      .isEmpty(),
-    check("property_address", "Property address is required")
-      .not()
-      .isEmpty(),
-    check("property_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      })
+    // check("propertyname", "Property name is required")
+    //   .not()
+    //   .isEmpty(),
+    // check("property_address", "Property address is required")
+    //   .not()
+    //   .isEmpty(),
+    // check("property_phone", "Please use a valid phone number")
+    //   .isNumeric()
+    //   .isLength({
+    //     min: 10
+    //   })
   ],
   (req, res) => {
     const errors = validationResult(req);

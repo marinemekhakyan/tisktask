@@ -63,7 +63,7 @@ class NewProperty extends Component {
                                 </span>
                                 <h4 className="h4">Add New Property</h4>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="propertyname" onChange={this.handleSubmit} required />
+                                    <input className="input100" type="text" name="propertyname" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="propertyname" className="input-label">Property Name</label>
                                 </div>

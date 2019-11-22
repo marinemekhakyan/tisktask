@@ -22,7 +22,7 @@ function Requests(props) {
         <ol>
             <li><input id="cb18" name="cb18" type="checkbox" /><label for="cb18"><span>{props.request}</span></label>
                 <div className="statusBtns">
-                    <button><a href="#"><img onclick={props.handleStatus(props.id)} id="approvedSymbol" src="./assets/approvedSymbol.png" /></a></button>
+                    <button><a href="#"><img onClick={() => props.handleStatus(props.id, 1)} id="approvedSymbol" src="./assets/approvedSymbol.png" /></a></button>
                     <button><a href="#"><img id="inProgressSymbol" src="./assets/progressSymbol.png" /></a></button>
                     <button><a href="#"><img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" /></a></button>
                 </div>

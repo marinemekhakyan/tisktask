@@ -6,21 +6,9 @@ const db = require('../../models/');
 // @route      POST api/tenant
 // @desc       register tenant
 // @access     private
-router.post(
-  '/',
-  [
-    check('request_type', 'Request type is required')
-      .not()
-      .isEmpty()
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-
+router.post('/:unitid/ticket/', (req, res) => {
     console.log(req.body);
-    db.Tickets.create(req.body)
+    db.Tickets.create({ ...req.body, UnitId: req.params.unitid })
       .then(r => {
         res.send('Ticket saved');
       })
@@ -30,21 +18,23 @@ router.post(
       });
   }
 );
-router.get(
-  '/:unitid',
-  [
-    check('request_type', 'Request type is required')
-      .not()
-      .isEmpty()
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
 
+router.put('/:unitid/ticket/:ticketId', (req, res) => {
+  console.log(req.body);
+  db.Tickets.update( req.body, { where: { UnitId: req.params.unitid, id: req.params.ticketId } })
+    .then(r => {
+      res.send('Ticket updated');
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(500).json({ errors: err });
+    });
+}
+);
+
+router.get('/:unitid/tickets', (req, res) => {
     console.log(req.params);
-    db.Tickets.find({UnitId:req.params.unitid})
+    db.Tickets.findAll({ UnitId: req.params.unitid })
       .then(ticketsDB => {
         res.json(ticketsDB)
       })

@@ -5,13 +5,18 @@ import API from "../utils/API";;
 class TiskTasks extends Component {
 
     state = {
+        unitID: 2,
         requests: []
     }
 
     componentDidMount() {
         console.log("before API call")
-        let unitID = 2
-        API.findAllTickets(unitID)
+        this.getAllTickets();
+    }
+
+    getAllTickets = () => {
+        API.findAllTickets(this.state.unitID)
+            .then(res => res.json())
             .then(res => {
                 console.log(res)
                 //this.setState({resquests:res.data})
@@ -28,11 +33,18 @@ class TiskTasks extends Component {
                     }]
                 })
             })
-            .catch(err => console.log(err))
+            .catch(err => console.error(err))
     }
 
-    handleStatus = (reqID) => {
+    handleStatus = (reqID, newStatus) => {
         console.log("handlestatus1", reqID)
+        API.updateTicket(this.state.unitID, reqID, { status: newStatus })
+            .then(res => {
+                if (res.ok) {
+                    this.getAllTickets()
+                }
+            })
+            .catch(err => console.error(err))
         //api call for updating the request based on the id and the type
     }
 
