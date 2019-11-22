@@ -209,34 +209,24 @@ router.post(
       return res.status(422).json({ errors: errors.array() });
     }
 
-    db.Properties.findOne({
-      where: {
-        property_address: req.body.property_address
-      }
-    })
-      .then(response => {
-        if (response) {
-          return res
-            .status(400)
-            .json({ errors: [{ msg: "Property already exists" }] });
+    db.Properties.create(req.body)
+      .then(r => {
+        const promises = [];
+        for (let i = 0; i < req.body.number_of_units ; i++) {
+          promises.push(db.Units.create({ unit_number: i + 1 }))
         }
-
-        console.log(req.body);
-        db.Properties.create(req.body)
-          .then(r => {
-            return res.send("Property saved");
-          })
-          .catch(err => {
-            console.error(err);
-            return res.status(500).json({ errors: err });
-          });
+        Promise.all(promises).then(() => {
+          res.send("Property saved");
+        }).catch(err => {
+          console.error(err);
+          return res.status(500).json({ errors: err });
+        });
       })
-      .catch(e => {
-        console.error(e);
-        return res.status(500).json({ errors: e });
+      .catch(err => {
+        console.error(err);
+        return res.status(500).json({ errors: err });
       });
-  }
-);
+});
 
 // ROUTE 5 ----------------------------------------------------------
 // @route      GET api/landlord/find/property
