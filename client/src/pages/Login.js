@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import axios from "axios";
+import Auth from "../utils/Auth";
 
 class Login extends Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class Login extends Component {
 
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      role: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -23,16 +25,39 @@ class Login extends Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state);
-    axios
-      .post("api/landlord/login", this.state)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-      .catch(err => {
-        if (err) throw err;
-      });
-      this.props.history.push();
+    if (this.state.role === "landlord") {
+      axios
+        .post("api/landlord/login", this.state)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          if (res) {
+            Auth.landlordLlogin(() => {
+              console.log(Auth.isAuthenticatedAsLandlord());
+              this.props.history.push("/landlord-dashboard");
+            });
+          }
+        })
+        .catch(err => {
+          if (err) throw err;
+        });
+    } else if (this.state.role === "tenant") {
+      axios
+        .post("api/tenant/login", this.state)
+        .then(res => {
+          console.log(res);
+          console.log(res.data);
+          if (res) {
+            Auth.tenantLlogin(() => {
+              console.log(Auth.isAuthenticatedAsTenant());
+              this.props.history.push("/tenant-dashboard");
+            });
+          }
+        })
+        .catch(err => {
+          if (err) throw err;
+        });
+    }
   }
 
   render() {
@@ -58,40 +83,77 @@ class Login extends Component {
                   TiskTask
                 </span>
                 <span className="login100-form-logo">
-                  <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
+                  <img
+                    id="fingerLogo"
+                    src="/assets/ttFingerLogoLoop.gif"
+                    alt=""
+                  />
                 </span>
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
-
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="text"
                     name="username"
                     onChange={this.handleInputChange}
                     value={this.state.username}
+                    placeholder={"Email"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="username" className="input-label">
+                  {/* <label htmlFor="username" className="input-label">
                     Username
-                  </label>
+                  </label> */}
                 </div>
                 <div className="wrap-input100 validate-input">
                   <input
-                    className="input100"
+                    className="input100 pl-0 pb-1"
                     type="password"
                     name="password"
                     onChange={this.handleInputChange}
                     value={this.state.password}
+                    placeholder={"Password"}
                     required
                   />
                   <span className="input-underline"></span>
-                  <label htmlFor="password" className="input-label">
+                  {/* <label htmlFor="password" className="input-label">
                     Password
-                  </label>
+                  </label> */}
                 </div>
+                <div className="wrap-input100 validate-input">
+                  <input
+                    className="input100 pl-0 pb-1"
+                    type="text"
+                    name="role"
+                    onChange={this.handleInputChange}
+                    value={this.state.role.toLocaleLowerCase()}
+                    placeholder={"Role"}
+                    required
+                  />
+                  <span className="input-underline"></span>
+                  {/* <label htmlFor="password" className="input-label">
+                    Role
+                  </label> */}
+                </div>
+                {/* <input
+                  className="mr-2"
+                  type="radio"
+                  name="role"
+                  onChange={this.handleInputChange}
+                  value={this.state.role}
+                />
+                {"Landlord"}
+                <br />
+                <input
+                  className="mr-2 mb-5"
+                  type="radio"
+                  name="role"
+                  onChange={this.handleInputChange}
+                  value={this.state.role}
+                />
+                {"Tenant"} */}
                 <div className="contact100-form-checkbox">
                   <input
                     className="input-checkbox100"
@@ -102,7 +164,7 @@ class Login extends Component {
                   <label className="label-checkbox100" htmlFor="ckb1">
                     Remember me
                   </label>
-                </div> 
+                </div>
                 <div className="container-login100-form-btn">
                   <button className="login100-form-btn" type="submit">Login</button>
                 </div>
@@ -112,7 +174,7 @@ class Login extends Component {
                   </a>
                 </div>
                 <div className="text-center p-t-5">
-                  <a className="txt1" href="">
+                  <a className="txt1" href="/">
                     Forgot Password?
                   </a>
                 </div>

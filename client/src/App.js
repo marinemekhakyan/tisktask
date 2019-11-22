@@ -16,6 +16,8 @@ import NewRequest from "./pages/NewRequest";
  
 // import Secure from "./pages/Secure";
 // import { PrivateRoute } from "./pages/PrivateRoute";
+import { PrivateLandlordRoute } from "./utils/PrivateLandlordRoute";
+import { PrivateTenantRoute } from "./utils/PrivateTenantRoute";
 
 import "./App.css";
 
@@ -36,6 +38,48 @@ function App() {
           <Route exact path="/tisktasks" component={TiskTasks} />
           <Route exact path="/my-requests" component={MyRequests} />
           <Route exact path="/new-request" component={NewRequest} />
+          <PrivateTenantRoute
+            exact
+            path="/tenant-dashboard"
+            component={TenantDashboard}
+          />
+          <PrivateLandlordRoute
+            exact
+            path="/landlord-dashboard"
+            component={LandlordDashboard}
+          />
+          <Route
+            exact
+            path="/landlord-registration"
+            component={LandlordRegistration}
+          />
+          {/* <PrivateLandlordRoute
+            exact
+            path="/tenant-registration"
+            component={TenantRegistration}
+          /> */}
+          <Route
+            exact
+            path="/tenant-registration"
+            component={TenantRegistration}
+          />
+          {/* <PrivateLandlordRoute
+            exact
+            path="/add-new-property"
+            component={NewProperty}
+          /> */}
+          <Route exact path="/add-new-property" component={NewProperty} />
+          <PrivateLandlordRoute
+            exact
+            path="/my-properties"
+            component={Properties}
+          />
+          <PrivateLandlordRoute
+            exact
+            path="/tenants-list"
+            component={Tenants}
+          />
+          <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>
       </div>
     </Router>
