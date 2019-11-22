@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import axios from "axios";
 
-class TenantRegistration extends Component {
+class TenantReg extends Component {
   constructor(props) {
     super(props);
 
@@ -29,12 +29,12 @@ class TenantRegistration extends Component {
     event.preventDefault();
     console.log(this.state);
     axios
-      .post("api/landlord/register/tenant", this.state)
+      .put("api/tenant/resetpassword", this.state)
       .then(res => {
         console.log(res);
         console.log(res.data);
         if (res) {
-          this.props.history.push("/landlord-dashboard");
+          this.props.history.push("/");
         }
       })
       .catch(err => {
@@ -289,11 +289,11 @@ class TenantRegistration extends Component {
                 <button className="login100-form-btn text-center m-auto">
                   SUBMIT
                 </button>
-                <div className="text-center p-t-5 mt-3">
+                {/* <div className="text-center p-t-5 mt-3">
                   <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?
                   </a>
-                </div>
+                </div> */}
               </form>
             </div>
           </div>
@@ -303,4 +303,4 @@ class TenantRegistration extends Component {
   }
 }
 
-export default TenantRegistration;
+export default TenantReg;

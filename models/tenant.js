@@ -48,6 +48,14 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
 
+    unit_number: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1, 140]
+      }
+    },
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,
