@@ -32,6 +32,9 @@ class LandlordReg extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
+        if (res) {
+          this.props.history.push("/");
+        }
       })
       .catch(err => {
         if (err) throw err;
@@ -62,62 +65,17 @@ class LandlordReg extends Component {
                   TiskTask
                 </span>
                 <span className="login100-form-logo">
-                  <img id="fingerLogo" src="/assets/ttFingerLogoLoop.gif" />
+                  <img
+                    id="fingerLogo"
+                    src="/assets/ttFingerLogoLoop.gif"
+                    alt=""
+                  />
                 </span>
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>
 
                 <h4 className="h4">Landlord Registration</h4>
-      
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="text" name="firstname" onChange={this.handleSubmit} required />
-                <span className="input-underline"></span>
-                <label htmlFor="firstname" className="input-label">First Name</label>
-              </div>
-  
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="text" name="lastname" onChange={this.handleInputChange} required />
-                <span className="input-underline"></span>
-                <label htmlFor="lastname" className="input-label">Last Name</label>
-              </div>
-  
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="number" name="primaryphone" onChange={this.handleInputChange} required />
-                <span className="input-underline"></span>
-                <label htmlFor="primaryphone" className="input-label">Primary Phone</label>
-              </div>
-  
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="email" name="primaryemail" onChange={this.handleInputChange} required />
-                <span className="input-underline"></span>
-                <label htmlFor="primaryemail" className="input-label">Primary Email</label>
-              </div>
-    
-              <div className="wrap-input100 validate-input">
-                <input className="input100" type="password" name="password" onChange={this.handleInputChange} required />
-                <span className="input-underline"></span>
-                <label htmlFor="password" className="input-label">Password</label>
-              </div>
-  
-              <div class="contact100-form-checkbox">
-                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
-                <label class="label-checkbox100" for="ckb1">
-                  Remember me
-                </label>
-              </div>
-              <button className="login100-form-btn">SUBMIT</button>
-              <div class="text-center p-t-5">
-                <a class="txt1" href="#">
-                  Forgot Password?
-                </a>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>  
-    </Fragment>
-    )
 
                 <div className="wrap-input100 validate-input">
                   <input
@@ -207,7 +165,7 @@ class LandlordReg extends Component {
                 </div>
                 <button className="login100-form-btn">SUBMIT</button>
                 <div className="text-center p-t-5">
-                  <a className="txt1" href="#">
+                  <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?
                   </a>
                 </div>
