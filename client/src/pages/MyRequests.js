@@ -19,35 +19,35 @@ class MyRequests extends Component {
     //   .then(res => {
     //     console.log(res);
     //     //this.setState({resquests:res.data})
-    //     this.setState({
-    //       requests: [
-    //         {
-    //           id: 1,
-    //           request: "neightbor's cats are loud",
-    //           status: 0
-    //         },
-    //         {
-    //           id: 2,
-    //           request: "very squeeky door",
-    //           status: 0
-    //         }
-    //       ]
-    //     });
+    // this.setState({
+    //   requests: [
+    //     {
+    //       id: 1,
+    //       request: "neightbor's cats are loud",
+    //       status: 0
+    //     },
+    //     {
+    //       id: 2,
+    //       request: "very squeeky door",
+    //       status: 0
+    //     }
+    //   ]
+    // });
     //   })
     //   .catch(err => console.log(err));
-    axios
-      .get("api/tenant/get/tickets")
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        console.log("Searching for tickets");
-        this.setState({
-          requests: res.data
-        });
-      })
-      .catch(err => {
-        if (err) throw err;
-      });
+    // axios
+    //   .get("api/tenant/get/tickets")
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //     console.log("Searching for tickets");
+    //     this.setState({
+    //       requests: res.data
+    //     });
+    //   })
+    //   .catch(err => {
+    //     if (err) throw err;
+    //   });
   }
 
   // handleStatus = reqID => {
@@ -60,7 +60,18 @@ class MyRequests extends Component {
     super(props);
 
     this.state = {
-      requests: [],
+      requests: [
+        {
+          id: 1,
+          request: "neightbor's cats are loud",
+          status: "Pending review"
+        },
+        {
+          id: 2,
+          request: "very squeeky door",
+          status: "In progress"
+        }
+      ],
       tenant_email: ""
     };
 
@@ -144,7 +155,7 @@ class MyRequests extends Component {
                         id={req.id}
                         request={req.request}
                         status={req.status}
-                        openDate={req.open_date}
+                        // openDate={req.open_date}
                       />
                     ))}
                     {/* {this.state.requests.map(req => (
