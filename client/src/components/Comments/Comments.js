@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import React, { Component } from "react";
-=======
-import React from "react";
->>>>>>> 398189bbf9baf6b10f17fa526e118bc738dcca88
 
 const coll = document.getElementsByClassName("collapsible");
 

@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-// import { Link } from "react-router-dom";
 import axios from "axios";
 import Auth from "../utils/Auth";
 
@@ -182,6 +181,9 @@ class Login extends Component {
                   </a>
                 </div>
               </form>
+              <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
             </div>
           </div>
         </div>
