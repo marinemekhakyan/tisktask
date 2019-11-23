@@ -172,7 +172,7 @@ class MyRequests extends Component {
                 </button>
               </div>
               <div className="text-center">
-                <a className="txt1" href="/tenant-dashboard">
+              <a className="txt1" href="/tenant-dashboard">
                   Back to my dashboard
                 </a> 
                 <hr /> 
