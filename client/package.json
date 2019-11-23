@@ -1,9 +1,6 @@
 {
   "name": "tisktask",
   "version": "0.1.0",
-  // "engines": {
-  //   "node": "10.15.3"
-  // },
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
