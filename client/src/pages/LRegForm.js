@@ -180,6 +180,9 @@ class LandlordReg extends Component {
                   </a>
                 </div>
               </form>
+              <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
             </div>
           </div>
         </div>

@@ -111,9 +111,15 @@ class TiskTasks extends Component {
                 </button>
               </div>
               <div className="text-center">
-                <a className="txt1" href="/">
-                  about TiskTask
+              <div className="text-center">
+                <a className="txt1" href="/landlord-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
                 </a>
+                </div>
               </div>
             </div>
           </div>
