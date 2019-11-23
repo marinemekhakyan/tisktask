@@ -179,14 +179,13 @@ class MyRequests extends Component {
                         done={this.done}
                       />
                     ))}{" "}
-                    */}
-                    {this.state.requests.map(req => (
+                    {/* {this.state.requests.map(req => (
                       <div key={req.id} className="card">
                         <div className="card-body">
                           <p>{req.request}</p>
                         </div>
                       </div>
-                    ))}
+                    ))} */}
                     {/* {this.state.requests.map(req => (
                       <div key={req.id} className="card">
                         <div className="card-body">
@@ -197,7 +196,7 @@ class MyRequests extends Component {
                   </div>
                 </section>
               </div>
-              <div className="bottomBtns p-t-10 text-center mb-5">
+              {/* <div className="bottomBtns p-t-10 text-center mb-5">
                 <button className="newTaskImg m-auto">
                   <a href="/new-request">
                     <img
@@ -210,7 +209,7 @@ class MyRequests extends Component {
                     </p>
                   </a>
                 </button>
-              </div>
+              </div> */}
               <div className="text-center">
                 <div className="text-center">
                   <a className="txt1" href="/landlord-dashboard">

@@ -24,14 +24,35 @@ class Requests extends Component {
     };
   }
 
-  setImgAttribute = () => {
-    let j;
-    let images = document.getElementsByClassName("statusImage");
-    console.log(images.length);
-    for (j = 0; j < images.length; j++) {
-      images[j].setAttribute("value", j);
-    }
-  };
+  // setImgAttribute = () => {
+  //   let j;
+  //   let p;
+  //   let y;
+  //   let doneImages = document.getElementsByClassName("doneImage");
+  //   let progImages = document.getElementsByClassName("progImage");
+  //   let holdImages = document.getElementsByClassName("holdImage");
+  //   // console.log(images.length);
+  //   for (j = 0; j < doneImages.length; j++) {
+  //     doneImages[j].setAttribute("value", "done-" + j);
+  //     doneImages[j].addEventListener("click", () => {
+  //       doneImages[j].setAttribute("src", "./assets/approvedSymbolClicked.png");
+  //     });
+  //   }
+  //   for (p = 0; p < progImages.length; p++) {
+  //     progImages[p].setAttribute("value", "prog-" + p);
+  //     progImages[p].addEventListener("click", () => {
+  //       progImages[p].setAttribute("src", "./assets/progressSymbolClicked.png");
+  //     });
+  //   }
+  //   const newHoldImg = e => {
+  //     console.log(e);
+  //     // e.setAttribute("src", "./assets/onHoldSymbolClicked.png");
+  //   };
+  //   for (y = 0; y < holdImages.length; y++) {
+  //     holdImages[y].setAttribute("value", "hold-" + y);
+  //     holdImages[y].addEventListener("click", newHoldImg);
+  //   }
+  // };
 
   expand = () => {
     this.setState(prevState => ({
@@ -39,9 +60,9 @@ class Requests extends Component {
     }));
   };
 
-  componentDidMount() {
-    this.setImgAttribute();
-  }
+  // componentDidMount() {
+  //   this.setImgAttribute();
+  // }
 
   render() {
     const { props } = this;
@@ -63,7 +84,7 @@ class Requests extends Component {
         <div className="statusBtns mb-3">
           <button>
             <img
-              className="statusImage"
+              className="doneImage"
               onClick={props.done}
               id="approvedSymbol"
               src="./assets/approvedSymbol.png"
@@ -72,7 +93,7 @@ class Requests extends Component {
           </button>
           <button>
             <img
-              className="statusImage"
+              className="progImage"
               onClick={props.inProgress}
               id="inProgressSymbol"
               src="./assets/progressSymbol.png"
@@ -81,7 +102,8 @@ class Requests extends Component {
           </button>
           <button>
             <img
-              className="statusImage"
+              style={{ height: "21.5%", width: "21.5%" }}
+              className="holdImage"
               id="aboutOnHoldSymbol"
               src="./assets/onHoldSymbol.png"
               alt=""

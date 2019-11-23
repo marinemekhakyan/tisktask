@@ -503,7 +503,7 @@ router.get("/find/tenants", (req, res) => {
 router.put("/put/ticket/status/inprogress", (req, res) => {
   db.Tickets.findOne({
     where: {
-      request: "Broken kitchen sink"
+      request: "Fix door"
     }
   })
     .then(response => {
@@ -516,7 +516,7 @@ router.put("/put/ticket/status/inprogress", (req, res) => {
       console.log(req.body);
       db.Tickets.update(
         { status: "In progress" },
-        { where: { request: "Broken kitchen sink" } }
+        { where: { request: "Fix door" } }
       )
         .then(r => {
           return res.send("Ticket updated");
@@ -539,7 +539,7 @@ router.put("/put/ticket/status/inprogress", (req, res) => {
 router.put("/put/ticket/status/done", (req, res) => {
   db.Tickets.findOne({
     where: {
-      request: "Broken kitchen sink"
+      request: "Fix door"
     }
   })
     .then(response => {
@@ -550,10 +550,7 @@ router.put("/put/ticket/status/done", (req, res) => {
       }
 
       console.log(req.body);
-      db.Tickets.update(
-        { status: "Done" },
-        { where: { request: "Broken kitchen sink" } }
-      )
+      db.Tickets.update({ status: "Done" }, { where: { request: "Fix door" } })
         .then(r => {
           return res.send("Ticket updated");
         })

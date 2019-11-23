@@ -155,7 +155,7 @@ router.post(
 router.get("/get/tickets", (req, res) => {
   db.Tickets.findAll({
     where: {
-      tenant_email: "marine@email.com"
+      tenant_email: "em2@email.com"
     }
   })
     .then(response => {
