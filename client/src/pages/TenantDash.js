@@ -46,15 +46,15 @@ class TenantDashboard extends Component {
               </h3>
 
               <div class="container-login100-form-btn">
-                <button class="login100-form-btn" id="repairBtn" href="/new-request">
+                <a href="/new-request"><button class="login100-form-btn" id="repairBtn">
                   Create Request
-                </button>
+                </button></a>
               </div>
 
               <div class="container-login100-form-btn">
-                <button class="login100-form-btn" id="genQBtn" href="/my-requests">
+              <a href="/my-requests"><button class="login100-form-btn" id="genQBtn" href="/my-requests">
                   My Requests
-                </button>
+                </button></a>
               </div>
 
               <div className="text-center p-t-80">

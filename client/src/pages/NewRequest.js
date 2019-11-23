@@ -59,7 +59,7 @@ class NewRequest extends Component {
                                 </span>
                                 <h4 className="h4">Add New Request</h4>
                                 <div className="wrap-input100 validate-input">
-                                    <input className="input100" type="text" name="description" onChange={this.handleSubmit} required />
+                                    <input className="input100" type="text" name="description" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="description" className="input-label">Description of Request</label>
                                 </div>
@@ -202,7 +202,7 @@ class NewRequest extends Component {
                                 <div className="text-center p-t-5">
                                     <a className="txt1" href="#">
                                         Forgot Password?
-                                    </a>
+                                    </a> 
                                 </div>
                             </form>
                         </div>

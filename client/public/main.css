@@ -1001,9 +1001,14 @@ body {
 } */
 
 .comment-box-content {
-   /* max-height: 0; 
-   overflow: hidden;  */
+  max-height: 0; 
+  overflow: hidden; 
   transition: max-height 0.2s ease-out;
+}
+
+.comment-box-content.expanded {
+  max-height: unset; 
+  overflow: auto; 
 }
 
 @media (max-width: 992px) {

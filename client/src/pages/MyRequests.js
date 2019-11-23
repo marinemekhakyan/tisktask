@@ -77,7 +77,7 @@ class MyRequests extends Component {
                             </div>
                             <div className="bottomBtns p-t-10">
                                 <button className="newTaskImg">
-                                    <a href="#">
+                                    <a href="/new-request">
                                         <img id="newTaskImg" src="./assets/addTaskSymbol.png" />
                                         <p className="login100-form-title" id="newRequestBtnTitle">
                                             New Request
@@ -88,7 +88,7 @@ class MyRequests extends Component {
                             <div className="text-center">
                                 <a className="txt1" href="#">
                                     about TiskTask
-                                 </a>
+                                </a>
                             </div>
                         </div>
                     </div>
