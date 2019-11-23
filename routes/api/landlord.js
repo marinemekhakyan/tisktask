@@ -496,4 +496,73 @@ router.get("/find/tenants", (req, res) => {
     });
 });
 
+// ROUTE 12 ----------------------------------------------------------
+// @route      PUT api/landlord/put/ticket/status/inprogress
+// @desc       tenant gets tickets for viewing
+// @access     private
+router.put("/put/ticket/status/inprogress", (req, res) => {
+  db.Tickets.findOne({
+    where: {
+      request: "Fix door"
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Ticket does not exist" }] });
+      }
+
+      console.log(req.body);
+      db.Tickets.update(
+        { status: "In progress" },
+        { where: { request: "Fix door" } }
+      )
+        .then(r => {
+          return res.send("Ticket updated");
+        })
+        .catch(err => {
+          console.error(err);
+          return res.status(500).json({ errors: err });
+        });
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
+
+// ROUTE 13 ----------------------------------------------------------
+// @route      PUT api/landlord/put/ticket/status/done
+// @desc       tenant gets tickets for viewing
+// @access     private
+router.put("/put/ticket/status/done", (req, res) => {
+  db.Tickets.findOne({
+    where: {
+      request: "Fix door"
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: "Ticket does not exist" }] });
+      }
+
+      console.log(req.body);
+      db.Tickets.update({ status: "Done" }, { where: { request: "Fix door" } })
+        .then(r => {
+          return res.send("Ticket updated");
+        })
+        .catch(err => {
+          console.error(err);
+          return res.status(500).json({ errors: err });
+        });
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
+
 module.exports = router;
