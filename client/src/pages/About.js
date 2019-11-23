@@ -3,39 +3,6 @@ import React, { Component, Fragment } from "react";
 import Auth from "../utils/Auth";
 
 class About extends Component {
-  componentDidMount() {
-    console.log(Auth.isAuthenticatedAsLandlord());
-    console.log(Auth.isAuthenticatedAsTenant());
-  }
-
-  newPropertyLink = () => {
-    if (Auth.isAuthenticatedAsLandlord()) {
-      console.log(Auth.isAuthenticatedAsLandlord());
-      this.props.history.push("/add-new-property");
-    } else {
-      this.props.history.push("/");
-    }
-  };
-
-  newTenantLink = () => {
-    if (Auth.isAuthenticatedAsLandlord()) {
-      console.log(Auth.isAuthenticatedAsLandlord());
-      this.props.history.push("/tenant-registration");
-    } else {
-      this.props.history.push("/");
-    }
-  };
-
-  tiskTaskLink = () => {
-    // if (Auth.isAuthenticatedAsLandlord()) {
-    //   console.log(Auth.isAuthenticatedAsLandlord());
-    //   this.props.history.push("/tisktasks");
-    // } else {
-    //   this.props.history.push("/");
-    // }
-    // below for dev, above for production
-    this.props.history.push("/tisktasks");
-  };
 
     render() {
         return (

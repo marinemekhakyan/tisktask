@@ -78,13 +78,20 @@ class TiskTasks extends Component {
                 <section>
                   <form className="ac-custom ac-list" autocomplete="off">
                     <h4 className="h4">TiskTasks</h4>
-                    {this.state.requests.map(req => (
-                      <Requests
+                    {/* {this.state.requests.map(req => (
+                      <Comments
                         key={req.id}
                         id={req.id}
                         request={req.request}
                         handleStatus={this.handleStatus}
                       />
+                    ))} */}
+                     {this.state.requests.map(req => (
+                      <div key={req.id} className="card">
+                        <div className="card-body">
+                          <p>{req.request}</p>
+                        </div>
+                      </div>
                     ))}
                   </form>
                 </section>

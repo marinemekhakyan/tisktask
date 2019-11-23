@@ -42,7 +42,7 @@ class Requests extends Component {
             <div className="statusBtns">
               <button>
                 <img
-                  onClick={() => props.handleStatus(props.id, 1)}
+                  onClick={() => props.handleStatus(props.id, 1)} 
                   id="approvedSymbol"
                   src="./assets/approvedSymbol.png"
                   alt=""

@@ -207,6 +207,7 @@ iframe {
   font-size: 15px;
   color: #e5e5e5;
   line-height: 1.5;
+  margin-bottom: 5px;
 }
 
 .h4 {
@@ -311,6 +312,7 @@ th, td {
   background: -moz-linear-gradient(top, #7579ff, #b224ef);
   background: linear-gradient(top, #7579ff, #b224ef);
   opacity: .9;
+  text-align: center;
 }
 
 .prop-wrap-login100 {
@@ -824,7 +826,6 @@ COMMENT BOX  */
  width: 320px;
  border: 1px solid #bbb;
  margin-left: 2vw;
- margin-right: 2vw;
  margin-right: 2vw;
  border-radius: 10px;
 }

@@ -40,6 +40,9 @@ class TenantRegistration extends Component {
       .catch(err => {
         if (err) throw err;
       });
+      
+      event.preventDefault();
+      alert("Welcome to TiskTask!");
   }
 
   render() {
@@ -295,6 +298,15 @@ class TenantRegistration extends Component {
                   </a>
                 </div>
               </form>
+              <div className="text-center">
+                <a className="txt1" href="/landlord-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
+                </div>
             </div>
           </div>
         </div>

@@ -178,7 +178,7 @@ class MyRequests extends Component {
                 <a className="txt1" href="/about-tisktask">
                    About TiskTask
                 </a>
-              </div>
+                </div>
             </div>
           </div>
         </div>
