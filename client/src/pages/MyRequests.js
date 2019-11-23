@@ -50,10 +50,10 @@ class MyRequests extends Component {
       });
   }
 
-  handleStatus = reqID => {
-    console.log("handlestatus1", reqID);
-    //api call for updating the request based on the id and the type
-  };
+  // handleStatus = reqID => {
+  //   console.log("handlestatus1", reqID);
+  //   //api call for updating the request based on the id and the type
+  // };
   // }
 
   constructor(props) {
@@ -138,21 +138,22 @@ class MyRequests extends Component {
                     autoComplete="off"
                   >
                     <h2 id="myRequestTitle">My Requests</h2>
-                    {/* {this.state.requests.map(req => (
+                    {this.state.requests.map(req => (
                       <Requests
                         key={req.id}
                         id={req.id}
                         request={req.request}
-                        handleStatus={this.handleStatus}
+                        status={req.status}
+                        openDate={req.open_date}
                       />
-                    ))} */}
-                    {this.state.requests.map(req => (
+                    ))}
+                    {/* {this.state.requests.map(req => (
                       <div key={req.id} className="card">
                         <div className="card-body">
                           <p>{req.request}</p>
                         </div>
                       </div>
-                    ))}
+                    ))} */}
                   </div>
                 </section>
               </div>
