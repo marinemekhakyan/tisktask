@@ -188,44 +188,16 @@ router.post(
 // @route      POST api/landlord/register/property
 // @desc       landlord registers property
 // @access     private
-router.post(
-  "/register/property",
-  [
-    // check("propertyname", "Property name is required")
-    //   .not()
-    //   .isEmpty(),
-    // check("property_address", "Property address is required")
-    //   .not()
-    //   .isEmpty(),
-    // check("property_phone", "Please use a valid phone number")
-    //   .isNumeric()
-    //   .isLength({
-    //     min: 10
-    //   })
-  ],
-  (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
-
-    db.Properties.create(req.body)
-      .then(r => {
-        const promises = [];
-        for (let i = 0; i < req.body.number_of_units ; i++) {
-          promises.push(db.Units.create({ unit_number: i + 1 }))
-        }
-        Promise.all(promises).then(() => {
-          res.send("Property saved");
-        }).catch(err => {
-          console.error(err);
-          return res.status(500).json({ errors: err });
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        return res.status(500).json({ errors: err });
-      });
+router.post("/register/property", (req, res) => {
+  db.Properties.create(req.body)
+    .then(r => {
+      console.log(req.body);
+      console.log("New property added");
+    })
+    .catch(e => {
+      if (e) throw e;
+      return res.status(500);
+    });
 });
 
 // ROUTE 5 ----------------------------------------------------------
