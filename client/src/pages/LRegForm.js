@@ -37,6 +37,11 @@ class LandlordReg extends Component {
       .catch(err => {
         if (err) throw err;
       });
+
+      event.preventDefault();
+      alert("Welcome to TiskTask!");
+
+      
   }
 
   render() {
@@ -166,7 +171,9 @@ class LandlordReg extends Component {
                     Remember me
                   </label>
                 </div>
-                <button className="login100-form-btn">SUBMIT</button>
+                <div>
+                  <button className="login100-form-btn" onClick={this.handleSubmit}>SUBMIT</button>
+                </div>
                 <div className="text-center p-t-5">
                   <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?

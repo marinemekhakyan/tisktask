@@ -40,6 +40,9 @@ class TenantRegistration extends Component {
       .catch(err => {
         if (err) throw err;
       });
+      
+      event.preventDefault();
+      alert("Welcome to TiskTask!");
   }
 
   render() {

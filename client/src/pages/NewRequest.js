@@ -36,6 +36,9 @@ class NewRequest extends Component {
             if (err) throw err;
           });
           this.props.history.push();
+
+          event.preventDefault();
+          alert("Thank you for submitting a ticket!");
       }
 
     render() {
@@ -66,9 +69,9 @@ class NewRequest extends Component {
                                 <div className="wrap-input100 validate-input">
                                     <input className="input100" type="text" name="street" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
-                                    <label htmlFor="street" className="input-label">Street</label>
+                                    <label htmlFor="street" className="input-label">Full Address</label>
                                 </div>
-                                <div className="wrap-input100 validate-input">
+                                {/* <div className="wrap-input100 validate-input">
                                     <input className="input100" type="text" name="city" onChange={this.handleInputChange} required />
                                     <span className="input100"></span>
                                     <label htmlFor="city" className="input-label">City</label>
@@ -140,8 +143,8 @@ class NewRequest extends Component {
                                     <input className="input100" type="number" name="zip" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="zip" className="input-label">ZIP</label>
-                                </div>
-                                <div className="wrap-input100 validate-input">
+                                </div> */}
+                                {/* <div className="wrap-input100 validate-input">
                                     <input className="input100" type="number" name="unit" onChange={this.handleInputChange} required />
                                     <span className="input-underline"></span>
                                     <label htmlFor="unit" className="input-label">Unit Number</label>
@@ -190,8 +193,8 @@ class NewRequest extends Component {
                                     <div className="form-check form-check-inline">
                                         <input className="form-check-input" type="checkbox" id="inlineCheckbox2" value="no" />
                                         <label className="form-check-label" for="inlineCheckbox2">No</label>
-                                    </div>
-                                </div>
+                                    </div> */}
+                                {/* </div> */} 
                                 <div className="contact100-form-checkbox">
                                     <input className="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" />
                                     <label className="label-checkbox100" for="ckb1">

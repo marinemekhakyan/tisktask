@@ -80,7 +80,7 @@ class Requests extends Component {
                                     <input className="form-control" type="text" placeholder="typeth here..." />
                                 </div>
                                 <div className="form-group">
-                                    <button className="btn btn-default">
+                                    <button className="btn btn-default" onClick>
                                         <img id="sendMsgImg" src="./assets/sendBtn.png" />
                                     </button>
                                 </div>
