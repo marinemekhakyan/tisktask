@@ -10,29 +10,29 @@ const db = require("../../models/");
 // @access     public
 router.post(
   "/register/self",
-  [
-    check("first_name", "First name is required")
-      .not()
-      .isEmpty(),
-    check("last_name", "Last name is required")
-      .not()
-      .isEmpty(),
-    check("phone_number", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      }),
-    check("email", "Please use a valid email address").isEmail(),
-    check(
-      "password",
-      "Password must be minimum 12 characters in length"
-    ).isLength({ min: 12 })
-  ],
+  // [
+  //   check("first_name", "First name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("last_name", "Last name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("phone_number", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     }),
+  //   check("email", "Please use a valid email address").isEmail(),
+  //   check(
+  //     "password",
+  //     "Password must be minimum 12 characters in length"
+  //   ).isLength({ min: 12 })
+  // ],
   (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
+    // const errors = validationResult(req);
+    // if (!errors.isEmpty()) {
+    //   return res.status(422).json({ errors: errors.array() });
+    // }
 
     db.Landlords.findOne({
       where: {
@@ -129,26 +129,26 @@ router.post("/login", (req, res) => {
 // @access     private
 router.post(
   "/register/tenant",
-  [
-    check("first_name", "First name is required")
-      .not()
-      .isEmpty(),
-    check("last_name", "Last name is required")
-      .not()
-      .isEmpty(),
-    check("primary_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      }),
-    check("primary_email", "Please use a valid email address").isEmail(),
-    check(
-      "password",
-      "Temporary password minimum 12 characters is required"
-    ).isLength({
-      min: 12
-    })
-  ],
+  // [
+  //   check("first_name", "First name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("last_name", "Last name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("primary_phone", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     }),
+  //   check("primary_email", "Please use a valid email address").isEmail(),
+  //   check(
+  //     "password",
+  //     "Temporary password minimum 12 characters is required"
+  //   ).isLength({
+  //     min: 12
+  //   })
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -206,19 +206,19 @@ router.post("/register/property", (req, res) => {
 // @access     private
 router.get(
   "/find/property",
-  [
-    check("property_name", "Property name is required")
-      .not()
-      .isEmpty(),
-    check("property_address", "Property address is required")
-      .not()
-      .isEmpty(),
-    check("property_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      })
-  ],
+  // [
+  //   check("property_name", "Property name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_address", "Property address is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_phone", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     })
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -254,19 +254,19 @@ router.get(
 // @access     private
 router.put(
   "/update/property",
-  [
-    check("property_name", "Property name is required")
-      .not()
-      .isEmpty(),
-    check("property_address", "Property address is required")
-      .not()
-      .isEmpty(),
-    check("property_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      })
-  ],
+  // [
+  //   check("property_name", "Property name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_address", "Property address is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_phone", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     })
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -311,19 +311,19 @@ router.put(
 // @access     private
 router.delete(
   "/delete/property",
-  [
-    check("property_name", "Property name is required")
-      .not()
-      .isEmpty(),
-    check("property_address", "Property address is required")
-      .not()
-      .isEmpty(),
-    check("property_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      })
-  ],
+  // [
+  //   check("property_name", "Property name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_address", "Property address is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("property_phone", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     })
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -367,20 +367,20 @@ router.delete(
 // @access     private
 router.delete(
   "/delete/tenant",
-  [
-    check("first_name", "First name is required")
-      .not()
-      .isEmpty(),
-    check("last_name", "Last name is required")
-      .not()
-      .isEmpty(),
-    check("primary_phone", "Please use a valid phone number")
-      .isNumeric()
-      .isLength({
-        min: 10
-      }),
-    check("primary_email", "Please use a valid email address").isEmail()
-  ],
+  // [
+  //   check("first_name", "First name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("last_name", "Last name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("primary_phone", "Please use a valid phone number")
+  //     .isNumeric()
+  //     .isLength({
+  //       min: 10
+  //     }),
+  //   check("primary_email", "Please use a valid email address").isEmail()
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -503,7 +503,7 @@ router.get("/find/tenants", (req, res) => {
 router.put("/put/ticket/status/inprogress", (req, res) => {
   db.Tickets.findOne({
     where: {
-      request: "Broken kitchen sink"
+      request: "Fix door"
     }
   })
     .then(response => {
@@ -516,7 +516,7 @@ router.put("/put/ticket/status/inprogress", (req, res) => {
       console.log(req.body);
       db.Tickets.update(
         { status: "In progress" },
-        { where: { request: "Broken kitchen sink" } }
+        { where: { request: "Fix door" } }
       )
         .then(r => {
           return res.send("Ticket updated");
@@ -539,7 +539,7 @@ router.put("/put/ticket/status/inprogress", (req, res) => {
 router.put("/put/ticket/status/done", (req, res) => {
   db.Tickets.findOne({
     where: {
-      request: "Broken kitchen sink"
+      request: "Fix door"
     }
   })
     .then(response => {
@@ -550,10 +550,7 @@ router.put("/put/ticket/status/done", (req, res) => {
       }
 
       console.log(req.body);
-      db.Tickets.update(
-        { status: "Done" },
-        { where: { request: "Broken kitchen sink" } }
-      )
+      db.Tickets.update({ status: "Done" }, { where: { request: "Fix door" } })
         .then(r => {
           return res.send("Ticket updated");
         })

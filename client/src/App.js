@@ -12,6 +12,7 @@ import Tenants from "./pages/Tenants";
 import TiskTasks from "./pages/TiskTasks";
 import MyRequests from "./pages/MyRequests";
 import NewRequest from "./pages/NewRequest";
+import About from "./pages/About";
 
 // import Secure from "./pages/Secure";
 // import { PrivateRoute } from "./pages/PrivateRoute";
@@ -54,6 +55,7 @@ function App() {
           <Route exact path="/tisktasks" component={TiskTasks} />
           <Route exact path="/my-requests" component={MyRequests} />
           <Route exact path="/new-request" component={NewRequest} />
+          <Route exact path="/about-tisktask" component={About} />
           <PrivateTenantRoute
             exact
             path="/tenant-dashboard"

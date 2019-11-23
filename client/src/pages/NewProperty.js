@@ -223,14 +223,38 @@ class NewProperty extends Component {
                     Remember me
                   </label> */}
                 {/* </div> */}
+                <div>
                 <button className="login100-form-btn text-center m-auto">
                   SUBMIT
                 </button>
+                </div>
+                <div className="text-center">
+                <a className="txt1" href="/landlord-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
+                </div>
                 {/* <div className="text-center p-t-5">
                   <a className="txt1" href="/landlord-dashboard">
                     Forgot Password?
                   </a>
                 </div> */}
+                    <div className="text-center">
+                <a className="txt1" href="/landlord-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
+                <hr />
+                <a className="txt1" href="/">
+                  Log Out
+                </a>
+                </div>
               </form>
             </div>
           </div>

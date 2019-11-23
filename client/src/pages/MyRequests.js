@@ -183,10 +183,18 @@ class MyRequests extends Component {
                 </button>
               </div>
               <div className="text-center">
-                <a className="txt1" href="/">
-                  about TiskTask
+              <a className="txt1" href="/tenant-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
                 </a>
-              </div>
+                <hr />
+                <a className="txt1" href="/">
+                  Log Out
+                </a>
+                </div>
             </div>
           </div>
         </div>

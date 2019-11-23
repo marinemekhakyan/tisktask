@@ -33,6 +33,10 @@ class NewRequest extends Component {
       .catch(err => {
         if (err) throw err;
       });
+
+
+      alert("Thank you for submitting a request! Please wait for your Landlord to update the request status.")      event.preventDefault();
+
   }
 
   render() {
@@ -347,11 +351,33 @@ class NewRequest extends Component {
                 <button className="login100-form-btn" type="submit">
                   SUBMIT
                 </button>
+                <div className="text-center">
+                <a className="txt1" href="/tenant-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
+                </div>
                 {/* <div className="text-center p-t-5">
                                     <a className="txt1" href="#">
                                         Forgot Password?
                                     </a> 
                                 </div> */}
+                <div className="text-center">
+                <a className="txt1" href="/tenant-dashboard">
+                  Back to my dashboard
+                </a> 
+                <hr /> 
+                <a className="txt1" href="/about-tisktask">
+                   About TiskTask
+                </a>
+                <hr />
+                <a className="txt1" href="/">
+                  Log Out
+                </a>
+                </div>
               </form>
             </div>
           </div>

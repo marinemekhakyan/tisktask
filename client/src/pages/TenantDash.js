@@ -88,8 +88,12 @@ class TenantDashboard extends Component {
               </div>
 
               <div className="text-center p-t-80">
+                <a className="txt1" href="/about-tisktask">
+                  About TiskTask
+                </a>
+                <hr />
                 <a className="txt1" href="/">
-                  about TiskTask
+                  Log Out
                 </a>
               </div>
             </div>
