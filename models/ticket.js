@@ -15,13 +15,13 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     status: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 0,
-      validate: {
-        min: 0,
-        max: 3
-      }
+      defaultValue: "Pending review"
+      // validate: {
+      //   min: 0,
+      //   max: 3
+      // }
     },
     open_date: {
       type: DataTypes.DATE, //verify
