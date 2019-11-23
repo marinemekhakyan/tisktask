@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 // import TenantReg from "../components/TenantRegistration/TenantReg";
 import Auth from "../utils/Auth";
 
-class LandlordDashboard extends Component {
+class About extends Component {
   componentDidMount() {
     console.log(Auth.isAuthenticatedAsLandlord());
     console.log(Auth.isAuthenticatedAsTenant());
@@ -149,4 +149,4 @@ class LandlordDashboard extends Component {
     }
 }
 
-export default LandlordDashboard;
+export default About;
