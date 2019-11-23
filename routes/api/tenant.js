@@ -106,7 +106,7 @@ router.post("/login", (req, res) => {
       }
 
       bcrypt
-        .compare(req.body.hash, response.hash)
+        .compare(req.body.password, response.hash)
         .then(match => {
           if (match) {
             req.session.user = response;
@@ -136,12 +136,9 @@ router.post(
       .isEmpty()
   ],
   (req, res) => {
-    const ticket = {
-      request: req.body.description,
-      UnitId: req.body.unit
-    }
-    db.Tickets.create(ticket)
+    db.Tickets.create(req.body)
       .then(r => {
+        console.log(req.body);
         return res.send("Ticket created");
       })
       .catch(err => {
@@ -150,5 +147,28 @@ router.post(
       });
   }
 );
+
+// ROUTE 3 ----------------------------------------------------------
+// @route      GET api/tenant/get/tickets
+// @desc       tenant gets tickets for viewing
+// @access     private
+router.get("/get/tickets", (req, res) => {
+  db.Tickets.findAll({
+    where: {
+      tenant_email: "lisa@email.com"
+    }
+  })
+    .then(response => {
+      if (!response) {
+        return res.status(400).json({ errors: [{ msg: "No tickets" }] });
+      }
+
+      return res.status(200).send(response);
+    })
+    .catch(e => {
+      console.error(e);
+      return res.status(500).json({ errors: e });
+    });
+});
 
 module.exports = router;
