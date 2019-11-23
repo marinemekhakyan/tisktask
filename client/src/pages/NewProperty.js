@@ -28,16 +28,16 @@ class NewProperty extends Component {
       .then(res => {
         console.log(res);
         console.log(res.data);
-        if (res) {
-          this.props.history.push("/landlord-dashboard");
-        }
+        // if (res) {
+        // this.props.history.push("/landlord-dashboard");
+        // console.log("New property added");
+        // }
       })
       .catch(err => {
         if (err) throw err;
       });
-
-      event.preventDefault();
-      alert("You've submitted a new property!");
+    this.props.history.push("/landlord-dashboard");
+    console.log("New property added");
   }
 
   render() {

@@ -427,36 +427,161 @@ th, td {
   padding-bottom: 7vh;
 }
 
-#newRequestBtnTitle{
-  font-family: Poppins-ExtraLight;
-  font-size: .7em;
-  color: #e5e5e5;
-  padding-bottom: 3vh;
-  padding-top: .5vh;
-}
-
+/*////////// ABOUT PAGE//////////////*/
 #aboutTitle{
   font-family: Poppins-Thin;
   font-size: 3em;
+  /* padding-bottom: 1vh; */
+}
+
+#aboutWelcome{
+  padding-bottom: 2vh;
+}
+
+.aboutParagraph{
+  font-family: Poppins-ExtraLight;
+  font-size: .4em;
+  text-align: left;
+  color: #e5e5e5;
+}
+
+#aboutBold{
+  font-family: Poppins-SemiBold;
+  padding-top: 1vh;
+  color: #e5e5e5;
+}
+
+.approvedSection{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 1vh;
+  padding-bottom: .5vh;
+  font-family: Poppins-SemiBold;
+  text-align: left;
+  color: #e5e5e5;
+}
+
+#symbolTitles{
+  font-family: Poppins-SemiBold;
+  padding-left: 1vh;
+  color:white;
 }
 
 #aboutApprovedSymbol{
-  height: 20%;
-  width: 20%;
+  height: 5%;
+  width: 5%;
+}
+
+.symbolsParagraph{
+  font-family: Poppins-ExtraLight;
+  font-size: .7em;
+  text-align: left;
+  color: #e5e5e5;
 }
 
 #aboutInProgressSymbol{
-  height: 20%;
-  width: 20%;
+  height: 6%;
+  width: 6%;
+}
+
+.inProgressSection{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 1vh;
+  font-family: Poppins-SemiBold;
+  text-align: left;
+  color: #e5e5e5;
+  padding-bottom: .5vh;
 }
 
 #aboutOnHoldSymbol{
-  height: 20%;
-  width: 20%;
+  height: 5%;
+  width: 5%;
+}
+
+#onHoldParagraph{
+  padding-bottom: 1vh;
+}
+
+.onHoldSection{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-top: 1vh;
+  font-family: Poppins-SemiBold;
+  text-align: left;
+  color: #e5e5e5;
+  padding-bottom: .5vh;
+}
+
+#teamTitle{
+  font-size: 1.5em;
+  padding-top: 1vh;
+  padding-bottom: 2vh;
+}
+
+.creatorsSection1{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.creatorsSection2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.creatorsSection3{
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#aboutNames{
+  font-family: Poppins-Regular;
+  font-size: 1.2em;
+  color: #fff;
+}
+
+#aboutRoles{
+  font-family: Poppins-Regular;
+  font-size: .7em;
+  text-align: left;
+  color: #e5e5e5;
+}
+
+#mattPic{
+  height: 35%;
+  width: 35%;
+  padding-left: .7vw;
+  padding-right: .7vw;
+  opacity: 1;
+}
+
+#marinePic{
+  height: 35%;
+  width: 35%;
+  padding-left: .7vw;
+  padding-right: .7vw;
+  opacity: 1;
+}
+
+#brettPic{
+  height: 35%;
+  width: 35%;
+  padding-left: .7vw;
+  padding-right: .7vw;
+  opacity: 1;
 }
 
 #userSpan{
   font-style: italic;
+  font-family: Poppins-Thin;
+  font-size: 3em;
+  padding-bottom: 7vh;
 }
 
 /*------------------------------------------------------------------
