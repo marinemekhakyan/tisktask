@@ -178,6 +178,14 @@ class MyRequests extends Component {
                         inProgress={this.inProgress}
                         done={this.done}
                       />
+                    ))}{" "}
+                    */}
+                    {this.state.requests.map(req => (
+                      <div key={req.id} className="card">
+                        <div className="card-body">
+                          <p>{req.request}</p>
+                        </div>
+                      </div>
                     ))}
                     {/* {this.state.requests.map(req => (
                       <div key={req.id} className="card">
@@ -204,9 +212,15 @@ class MyRequests extends Component {
                 </button>
               </div>
               <div className="text-center">
-                <a className="txt1" href="/">
-                  about TiskTask
-                </a>
+                <div className="text-center">
+                  <a className="txt1" href="/landlord-dashboard">
+                    Back to my dashboard
+                  </a>
+                  <hr />
+                  <a className="txt1" href="/about-tisktask">
+                    About TiskTask
+                  </a>
+                </div>
               </div>
             </div>
           </div>

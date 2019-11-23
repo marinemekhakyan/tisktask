@@ -24,11 +24,24 @@ class Requests extends Component {
     };
   }
 
+  setImgAttribute = () => {
+    let j;
+    let images = document.getElementsByClassName("statusImage");
+    console.log(images.length);
+    for (j = 0; j < images.length; j++) {
+      images[j].setAttribute("value", j);
+    }
+  };
+
   expand = () => {
     this.setState(prevState => ({
       expanded: !prevState.expanded
     }));
   };
+
+  componentDidMount() {
+    this.setImgAttribute();
+  }
 
   render() {
     const { props } = this;
@@ -50,6 +63,7 @@ class Requests extends Component {
         <div className="statusBtns mb-3">
           <button>
             <img
+              className="statusImage"
               onClick={props.done}
               id="approvedSymbol"
               src="./assets/approvedSymbol.png"
@@ -58,6 +72,7 @@ class Requests extends Component {
           </button>
           <button>
             <img
+              className="statusImage"
               onClick={props.inProgress}
               id="inProgressSymbol"
               src="./assets/progressSymbol.png"
@@ -66,6 +81,7 @@ class Requests extends Component {
           </button>
           <button>
             <img
+              className="statusImage"
               id="aboutOnHoldSymbol"
               src="./assets/onHoldSymbol.png"
               alt=""
