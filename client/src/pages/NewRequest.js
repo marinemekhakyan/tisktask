@@ -33,6 +33,9 @@ class NewRequest extends Component {
       .catch(err => {
         if (err) throw err;
       });
+
+      event.preventDefault();
+      alert("Thank you for submitting a request!")
   }
 
   render() {
@@ -359,6 +362,10 @@ class NewRequest extends Component {
                 <hr /> 
                 <a className="txt1" href="/about-tisktask">
                    About TiskTask
+                </a>
+                <hr />
+                <a className="txt1" href="/">
+                  Log Out
                 </a>
                 </div>
               </form>
