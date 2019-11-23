@@ -10,22 +10,22 @@ const db = require("../../models/");
 // @access     public
 router.put(
   "/resetpassword",
-  [
-    check("first_name", "First name is required")
-      .not()
-      .isEmpty(),
-    check("last_name", "Last name is required")
-      .not()
-      .isEmpty(),
-    check("primary_phone", "Please use a valid phone number").isLength({
-      min: 10
-    }),
-    check("primary_email", "Please use a valid email address").isEmail(),
-    check(
-      "password",
-      "Password must be minimum 12 characters in length"
-    ).isLength({ min: 12 })
-  ],
+  // [
+  //   check("first_name", "First name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("last_name", "Last name is required")
+  //     .not()
+  //     .isEmpty(),
+  //   check("primary_phone", "Please use a valid phone number").isLength({
+  //     min: 10
+  //   }),
+  //   check("primary_email", "Please use a valid email address").isEmail(),
+  //   check(
+  //     "password",
+  //     "Password must be minimum 12 characters in length"
+  //   ).isLength({ min: 12 })
+  // ],
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -130,11 +130,11 @@ router.post("/login", (req, res) => {
 // @access     private
 router.post(
   "/create/ticket",
-  [
-    check("request", "Request is required")
-      .not()
-      .isEmpty()
-  ],
+  // [
+  //   check("request", "Request is required")
+  //     .not()
+  //     .isEmpty()
+  // ],
   (req, res) => {
     db.Tickets.create(req.body)
       .then(r => {

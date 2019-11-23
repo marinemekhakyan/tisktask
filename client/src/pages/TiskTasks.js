@@ -1,16 +1,12 @@
 import React, { Component, Fragment } from "react";
 import Requests from "../components/Comments/Comments";
-// import API from "../utils/API";
-import axios from "axios";
+import API from "../utils/API";
 
-class MyRequests extends Component {
-  /// state (include the array with all the request )
-  // state = {
-  //   requests: [],
-  //   tenant_email: ""
-  // };
-  //     // api call for all the requests from the tenant then
-  //     // setState requests = data   this means in the render we need to do (this.state.request.map(request => render component))
+class TiskTasks extends Component {
+  state = {
+    unitID: 2,
+    requests: []
+  };
 
   componentDidMount() {
     // console.log("before API call");
@@ -35,19 +31,19 @@ class MyRequests extends Component {
     //     });
     //   })
     //   .catch(err => console.log(err));
-    axios
-      .get("api/tenant/get/tickets")
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-        console.log("Searching for tickets");
-        this.setState({
-          requests: res.data
-        });
-      })
-      .catch(err => {
-        if (err) throw err;
-      });
+    // axios
+    //   .get("api/tenant/get/tickets")
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //     console.log("Searching for tickets");
+    //     this.setState({
+    //       requests: res.data
+    //     });
+    //   })
+    //   .catch(err => {
+    //     if (err) throw err;
+    //   });
   }
 
   // handleStatus = reqID => {
@@ -60,7 +56,18 @@ class MyRequests extends Component {
     super(props);
 
     this.state = {
-      requests: [],
+      requests: [
+        {
+          id: 1,
+          request: "neightbor's cats are loud",
+          status: "Pending review"
+        },
+        {
+          id: 2,
+          request: "very squeeky door",
+          status: "In progress"
+        }
+      ],
       tenant_email: ""
     };
 
@@ -68,56 +75,41 @@ class MyRequests extends Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  inProgress = () => {
-    const status = { status: "In progress" };
-    axios
-      .put("api/landlord/put/ticket/status/inprogress", { status })
+  getAllTickets = () => {
+    API.findAllTickets(this.state.unitID)
+      .then(res => res.json())
       .then(res => {
         console.log(res);
-        console.log(res.data);
-        console.log("ticket updated");
-        window.location.reload();
+        //this.setState({resquests:res.data})
+        this.setState({
+          requests: [
+            {
+              id: 1,
+              request: "neighbor's cats are loud",
+              status: 0
+            },
+            {
+              id: 2,
+              request: "very squeeky door",
+              status: 0
+            }
+          ]
+        });
       })
-      .catch(err => {
-        if (err) throw err;
-      });
+      .catch(err => console.error(err));
   };
 
-  done = () => {
-    const status = { status: "Done" };
-    axios
-      .put("api/landlord/put/ticket/status/done", { status })
+  handleStatus = (reqID, newStatus) => {
+    console.log("handlestatus1", reqID);
+    API.updateTicket(this.state.unitID, reqID, { status: newStatus })
       .then(res => {
-        console.log(res);
-        console.log(res.data);
-        console.log("ticket updated");
-        window.location.reload();
+        if (res.ok) {
+          this.getAllTickets();
+        }
       })
-      .catch(err => {
-        if (err) throw err;
-      });
+      .catch(err => console.error(err));
+    //api call for updating the request based on the id and the type
   };
-
-  // handleInputChange(event) {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: value });
-  // }
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   console.log(this.state);
-
-  //   axios
-  //     .get("api/tenant/get/tickets")
-  //     .then(res => {
-  //       console.log(res);
-  //       console.log(res.data);
-  //       console.log("Searching for tickets");
-  //     })
-  //     .catch(err => {
-  //       if (err) throw err;
-  //     });
-  // }
 
   render() {
     return (
@@ -144,60 +136,30 @@ class MyRequests extends Component {
               <span className="login100-form-logo">
                 <img id="fingerLogo" src="assets/ttFingerLogoLoop.gif" alt="" />
               </span>
-              {/* <form onSubmit={this.handleSubmit}>
-                <div className="wrap-input100 validate-input">
-                  <input
-                    className="input100 pl-0 pb-1"
-                    type="text"
-                    name="tenant_email"
-                    value={this.state.tenant_email}
-                    onChange={this.handleInputChange}
-                    placeholder={"Enter email to see requests"}
-                    required
-                  />
-                  <span className="input-underline"></span>
-                </div>
-                <button className="login100-form-btn m-auto" type="submit">
-                  SUBMIT
-                </button>
-              </form> */}
               <div className="container">
                 <section>
-                  <div
-                    className="ac-custom ac-list text-center"
-                    autoComplete="off"
-                  >
-                    <h2 id="myRequestTitle">TiskTasks</h2>
-                    {this.state.requests.map(req => (
-                      <Requests
+                  <form className="ac-custom ac-list" autocomplete="off">
+                    <h4 className="h4">TiskTasks</h4>
+                    {/* {this.state.requests.map(req => (
+                      <Comments
                         key={req.id}
                         id={req.id}
                         request={req.request}
-                        status={req.status}
-                        openDate={req.open_date}
-                        inProgress={this.inProgress}
-                        done={this.done}
+                        handleStatus={this.handleStatus}
                       />
-                    ))}{" "}
-                    {/* {this.state.requests.map(req => (
+                    ))} */}
+                     {this.state.requests.map(req => (
                       <div key={req.id} className="card">
                         <div className="card-body">
                           <p>{req.request}</p>
                         </div>
                       </div>
-                    ))} */}
-                    {/* {this.state.requests.map(req => (
-                      <div key={req.id} className="card">
-                        <div className="card-body">
-                          <p>{req.request}</p>
-                        </div>
-                      </div>
-                    ))} */}
-                  </div>
+                    ))}
+                  </form>
                 </section>
               </div>
-              {/* <div className="bottomBtns p-t-10 text-center mb-5">
-                <button className="newTaskImg m-auto">
+              <div className="bottomBtns p-t-10">
+                <button className="newTaskImg">
                   <a href="/new-request">
                     <img
                       id="newTaskImg"
@@ -209,8 +171,9 @@ class MyRequests extends Component {
                     </p>
                   </a>
                 </button>
-              </div> */}
+              </div>
               <div className="text-center">
+
                 <div className="text-center">
                   <a className="txt1" href="/landlord-dashboard">
                     Back to my dashboard
@@ -222,9 +185,9 @@ class MyRequests extends Component {
                   <hr />
                 <a className="txt1" href="/">
                   Log Out
+
                 </a>
                 </div>
-              </div>
             </div>
           </div>
         </div>
@@ -234,4 +197,4 @@ class MyRequests extends Component {
   }
 }
 
-export default MyRequests;
+export default TiskTasks;
