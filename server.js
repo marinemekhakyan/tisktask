@@ -6,7 +6,7 @@ const routes = require('./routes/');
 
 var db = require('./models');
 
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 3001;
 
 const app = express();
 
@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
 // Add routes, both API and view
 app.use(routes);
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: false }).then(function() {
   app.listen(PORT, function() {
     console.log(
       '==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.',

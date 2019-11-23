@@ -8,11 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     status: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
-      defaultValue: 'pending review',
+      defaultValue: 0,
       validate: {
-        len: [1, 140]
+        min: 0,
+        max: 3
       }
     },
     open_date: {
