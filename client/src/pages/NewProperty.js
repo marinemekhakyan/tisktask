@@ -35,6 +35,9 @@ class NewProperty extends Component {
       .catch(err => {
         if (err) throw err;
       });
+
+      event.preventDefault();
+      alert("You've submitted a new property!");
   }
 
   render() {

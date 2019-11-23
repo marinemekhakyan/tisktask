@@ -40,6 +40,9 @@ class TenantReg extends Component {
       .catch(err => {
         if (err) throw err;
       });
+
+      event.preventDefault();
+      alert("The password has been reset!");
   }
 
   render() {
