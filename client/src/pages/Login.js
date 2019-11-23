@@ -41,7 +41,8 @@ class Login extends Component {
         .catch(err => {
           if (err) throw err;
         });
-    } else if (this.state.role === "tenant") {
+    }
+    if (this.state.role === "tenant") {
       axios
         .post("api/tenant/login", this.state)
         .then(res => {
@@ -166,7 +167,9 @@ class Login extends Component {
                   </label>
                 </div>
                 <div className="container-login100-form-btn">
-                  <button className="login100-form-btn" type="submit">Login</button>
+                  <button className="login100-form-btn" type="submit">
+                    Login
+                  </button>
                 </div>
                 <div className="text-center p-t-90">
                   <a className="txt1" href="/landlord-registration">
