@@ -35,7 +35,7 @@ class NewRequest extends Component {
       });
 
 
-      alert("Thank you for submitting a request! Please wait for your Landlord to update the request status.")      event.preventDefault();
+      alert("Thank you for submitting a request! Please wait for your Landlord to update the request status.");
 
   }
 
