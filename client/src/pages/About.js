@@ -78,26 +78,26 @@ class About extends Component {
                                 <p className="aboutParagraph" id="aboutBold">LANDLORDS</p>
                                 <p className="aboutParagraph">Stop pulling your hair out making sure you've answered every Call, Text, Email to every Tenants, Contractor, Electrical, HVAC, Plumbing, & Landscaping companies.</p>
                             </div>
-                        </div>
+                       
 
 
                         <hr/>
 
                         <div className="aboutStatusBtns">
                             <div className="approvedSection">
-                                <img id="aboutApprovedSymbol" src="./images/approvedSymbol.png"/>
+                                <img id="aboutApprovedSymbol" src="./assets/approvedSymbol.png"/>
                                 <p id="symbolTitles">Approved</p>
                             </div>
                             <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.</p>
                             
                             <div className="inProgressSection">
-                                <img id="aboutInProgressSymbol" src="./images/progressSymbol.png"/>
+                                <img id="aboutInProgressSymbol" src="./assets/progressSymbol.png"/>
                                 <p id="symbolTitles">In Progress</p>
                             </div>
                             <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has scheduled to resolve the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.</p>
                             
                             <div className="onHoldSection">
-                                <img id="aboutOnHoldSymbol" src="./images/onHoldSymbol.png"/>
+                                <img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png"/>
                                 <p id="symbolTitles">On Hold</p>
                             </div>
                             <p className="symbolsParagraph" id="onHoldParagraph">If this symbol is highlighted, it means the LandLord has encountered a hiccup in the process of resolving the Tenant's Request, and is actively working to resolve the issue. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.</p>
@@ -111,7 +111,7 @@ class About extends Component {
                             <button>
                                 <a href="https://mafner.github.io/mhDevDesigns/" className="creatorsSection1">
                                     <h5 id="aboutNames">Matt H.</h5>
-                                    <img id="mattPic" src="./images/mattPic.PNG"/>
+                                    <img id="mattPic" src="./assets/mattPic.PNG"/>
                                     <p id="aboutRoles">UI/UX | Concept Design</p>
                                 </a>
                             </button>
@@ -119,16 +119,16 @@ class About extends Component {
                             <button>
                                 <a href="https://github.com/marinemekhakyan" className="creatorsSection2">
                                     <p id="aboutRoles">Back End | Team Captain</p>
-                                    <img id="marinePic" src="./images/marinePic.PNG"/>
+                                    <img id="marinePic" src="./assets/marinePic.PNG"/>
                                     <h5 id="aboutNames">Marine M.</h5>
                                 </a>
                             </button>
                             
                             <button>	
                                 <a href="https://github.com/bretbaker808" className="creatorsSection3">
-                                    <h5 id="aboutNames">Brett B.</h5>
-                                    <img id="brettPic" src="./images/brettPic.PNG"/>
-                                    <p id="aboutRoles">Back End | Most Valuable Programer</p>
+                                    <h5 id="aboutNames">Bret B.</h5>
+                                    <img id="brettPic" src="./assets/brettPic.PNG"/>
+                                    <p id="aboutRoles">Back End | Most Valuable Programmer</p>
                                 </a>
                             </button>
 
@@ -139,6 +139,7 @@ class About extends Component {
                                 Back Home
                                 </a>
                             <div/>
+                        </div>
                         </div>
                     </div>
                 </div>
