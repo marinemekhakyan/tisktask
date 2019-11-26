@@ -21,6 +21,10 @@ Landlords will find the registration link in the home page. Once registered, lan
 
 
 ### <b> Approved</b> :white_check_mark:
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1ba2908160a9ddeb7a9f888178a4a070b875039e
 
 If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.
 
