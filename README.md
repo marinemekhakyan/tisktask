@@ -21,20 +21,20 @@ Landlords will find the registration link in the home page. Once registered, lan
 
 
 ### <b> Approved</b>
-<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/approvedSymbolClicked.png?raw=true" style="width: 30px;">
+<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/approvedSymbolClicked.png?raw=true" style="width: 10px;">
 
 
 If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.
 
 
 ### <b> In Progress</b>
-<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/progressSymbolClicked.png?raw=true" style="width: 30px;">
+<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/progressSymbolClicked.png?raw=true" style="width: 10px;">
 
 If this symbol is highlighted, it means the LandLord has scheduled to resolve the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.
 
 
 ### <b> On Hold</b>
-<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/onHoldSymbolClicked.png?raw=true" style="width: 30px;">
+<img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/onHoldSymbolClicked.png?raw=true" style="width: 10px;">
 
 If this symbol is highlighted, it means the LandLord has encountered a hiccup in the process of resolving the Tenant's Request, and is actively working to resolve the issue. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.
 
