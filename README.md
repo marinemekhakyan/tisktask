@@ -20,8 +20,8 @@ Stop pulling your hair out making sure you've answered every Call, Text, Email t
 Landlords will find the registration link in the home page. Once registered, landlords are able to register properties and tenants and manage all their tisktasks in one place. TiskTasks are requests created by tenants on their dashboard.
 
 
-### <b> Approved</b> 
-:white_check_mark:
+### <b> Approved</b> :white_check_mark:
+
 
 If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.
 
