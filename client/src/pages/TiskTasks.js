@@ -9,8 +9,70 @@ class TiskTasks extends Component {
   };
 
   componentDidMount() {
-    console.log("before API call");
-    this.getAllTickets();
+    // console.log("before API call");
+    // let unitID = 2;
+    // API.findAllTickets(unitID)
+    //   .then(res => {
+    //     console.log(res);
+    //     //this.setState({resquests:res.data})
+    //     this.setState({
+    //       requests: [
+    //         {
+    //           id: 1,
+    //           request: "neightbor's cats are loud",
+    //           status: 0
+    //         },
+    //         {
+    //           id: 2,
+    //           request: "very squeeky door",
+    //           status: 0
+    //         }
+    //       ]
+    //     });
+    //   })
+    //   .catch(err => console.log(err));
+    // axios
+    //   .get("api/tenant/get/tickets")
+    //   .then(res => {
+    //     console.log(res);
+    //     console.log(res.data);
+    //     console.log("Searching for tickets");
+    //     this.setState({
+    //       requests: res.data
+    //     });
+    //   })
+    //   .catch(err => {
+    //     if (err) throw err;
+    //   });
+  }
+
+  // handleStatus = reqID => {
+  //   console.log("handlestatus1", reqID);
+  //   //api call for updating the request based on the id and the type
+  // };
+  // }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      requests: [
+        {
+          id: 1,
+          request: "neightbor's cats are loud",
+          status: "Pending review"
+        },
+        {
+          id: 2,
+          request: "very squeeky door",
+          status: "In progress"
+        }
+      ],
+      tenant_email: ""
+    };
+
+    // this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   getAllTickets = () => {
@@ -111,18 +173,26 @@ class TiskTasks extends Component {
                 </button>
               </div>
               <div className="text-center">
-                <a className="txt1" href="/landlord-dashboard">
-                  Back to my dashboard
-                </a> 
-                <hr /> 
-                <a className="txt1" href="/about-tisktask">
-                   About TiskTask
+
+                <div className="text-center">
+                  <a className="txt1" href="/landlord-dashboard">
+                    Back to my dashboard
+                  </a>
+                  <hr />
+                  <a className="txt1" href="/about-tisktask">
+                    About TiskTask
+                  </a>
+                  <hr />
+                <a className="txt1" href="/">
+                  Log Out
+
                 </a>
                 </div>
             </div>
           </div>
         </div>
         <div id="dropDownSelect1"></div>
+      </div>
       </Fragment>
     );
   }
