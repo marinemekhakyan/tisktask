@@ -44,7 +44,7 @@ Marine Mekhakyan - React Developer <https://github.com/marinemekhakyan/>
 
 Bret Baker - Back End Developer <https://github.com/bretbaker808/>
 
-![](https://github.com/marinemekhakyan/BAmazon/blob/master/assets/customer.gif?raw=true)
+![](https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/readme-screenshot.gif?raw=true)
 
 
 
