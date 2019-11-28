@@ -1,4 +1,3 @@
-Code Bootcamp Project #3
 # TiskTask - Coding Bootcamp Project #3
 <center><b>Welcome to TiskTask!</b></center></br>
 
