@@ -250,6 +250,10 @@ class NewProperty extends Component {
                 <a className="txt1" href="/about-tisktask">
                    About TiskTask
                 </a>
+                <hr />
+                <a className="txt1" href="/">
+                  Log Out
+                </a>
                 </div>
               </form>
             </div>
