@@ -1,6 +1,7 @@
 {
   "name": "tisktask",
   "version": "1.0.0",
+  "node": "11.14.0",
   "description": "Code Bootcamp Project #3",
   "proxy": "http://localhost:8000",
   "main": "server.js",
@@ -39,6 +40,7 @@
     "mysql2": "^2.0.0",
     "react-moment": "^0.9.6",
     "react-router": "^5.1.2",
+
     "sequelize": "^5.21.2"
   },
   "devDependencies": {
