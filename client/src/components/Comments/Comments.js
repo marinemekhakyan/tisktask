@@ -24,35 +24,35 @@ class Requests extends Component {
     };
   }
 
-  // setImgAttribute = () => {
-  //   let j;
-  //   let p;
-  //   let y;
-  //   let doneImages = document.getElementsByClassName("doneImage");
-  //   let progImages = document.getElementsByClassName("progImage");
-  //   let holdImages = document.getElementsByClassName("holdImage");
-  //   // console.log(images.length);
-  //   for (j = 0; j < doneImages.length; j++) {
-  //     doneImages[j].setAttribute("value", "done-" + j);
-  //     doneImages[j].addEventListener("click", () => {
-  //       doneImages[j].setAttribute("src", "./assets/approvedSymbolClicked.png");
-  //     });
-  //   }
-  //   for (p = 0; p < progImages.length; p++) {
-  //     progImages[p].setAttribute("value", "prog-" + p);
-  //     progImages[p].addEventListener("click", () => {
-  //       progImages[p].setAttribute("src", "./assets/progressSymbolClicked.png");
-  //     });
-  //   }
-  //   const newHoldImg = e => {
-  //     console.log(e);
-  //     // e.setAttribute("src", "./assets/onHoldSymbolClicked.png");
-  //   };
-  //   for (y = 0; y < holdImages.length; y++) {
-  //     holdImages[y].setAttribute("value", "hold-" + y);
-  //     holdImages[y].addEventListener("click", newHoldImg);
-  //   }
-  // };
+  setImgAttribute = () => {
+    let j;
+    let p;
+    let y;
+    let doneImages = document.getElementsByClassName("doneImage");
+    let progImages = document.getElementsByClassName("progImage");
+    let holdImages = document.getElementsByClassName("holdImage");
+    // console.log(images.length);
+    for (j = 0; j < doneImages.length; j++) {
+      doneImages[j].setAttribute("value", "done-" + j);
+      doneImages[j].addEventListener("click", () => {
+        doneImages[j].setAttribute("src", "./assets/approvedSymbolClicked.png");
+      });
+    }
+    for (p = 0; p < progImages.length; p++) {
+      progImages[p].setAttribute("value", "prog-" + p);
+      progImages[p].addEventListener("click", () => {
+        progImages[p].setAttribute("src", "./assets/progressSymbolClicked.png");
+      });
+    }
+    const newHoldImg = e => {
+      console.log(e);
+      // e.setAttribute("src", "./assets/onHoldSymbolClicked.png");
+    };
+    for (y = 0; y < holdImages.length; y++) {
+      holdImages[y].setAttribute("value", "hold-" + y);
+      holdImages[y].addEventListener("click", newHoldImg);
+    }
+  };
 
   expand = () => {
     this.setState(prevState => ({
