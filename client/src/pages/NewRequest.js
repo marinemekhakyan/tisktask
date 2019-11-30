@@ -35,7 +35,7 @@ class NewRequest extends Component {
       });
 
 
-      alert("Thank you for submitting a request! Please wait for your Landlord to update the request status.")      event.preventDefault();
+      alert("Thank you for submitting a request! Please wait for your Landlord to update the request status.")      
 
   }
 
@@ -352,10 +352,7 @@ class NewRequest extends Component {
                   SUBMIT
                 </button>
                 <div className="text-center">
-                <a className="txt1" href="/tenant-dashboard">
-                  Back to my dashboard
-                </a> 
-                <hr /> 
+                  <hr />
                 <a className="txt1" href="/about-tisktask">
                    About TiskTask
                 </a>
@@ -369,10 +366,6 @@ class NewRequest extends Component {
                 <a className="txt1" href="/tenant-dashboard">
                   Back to my dashboard
                 </a> 
-                <hr /> 
-                <a className="txt1" href="/about-tisktask">
-                   About TiskTask
-                </a>
                 <hr />
                 <a className="txt1" href="/">
                   Log Out

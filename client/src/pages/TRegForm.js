@@ -42,7 +42,7 @@ class TenantRegistration extends Component {
       });
       
       event.preventDefault();
-      alert("Welcome to TiskTask!");
+      alert("Thank you for registering a new tenant!");
   }
 
   render() {

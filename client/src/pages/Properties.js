@@ -49,20 +49,20 @@ const Properties = () => (
             </thead>
             <tbody>
               <tr>
-                <td>Rainbows and Unicorns</td>
-                <td>1111 Chandler ave.</td>
-                <td>Encino</td>
-                <td>CA</td>
-                <td>91401</td>
-                <td>10</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <td>Happy Residence</td>
-                <td>123 Dogs blvd.</td>
-                <td>Los Angeles</td>
-                <td>CA</td>
-                <td>90034</td>
-                <td>12</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -80,15 +80,6 @@ const Properties = () => (
     </a>
   </div>
         </div>
-    <div className="text-center">
-                <a className="txt1" href="/landlord-dashboard">
-                  Back to my dashboard
-                </a> 
-                <hr /> 
-                <a className="txt1" href="/about-tisktask">
-                   About TiskTask
-                </a>
-                </div>
       </div>
     </div>
   </Fragment>
