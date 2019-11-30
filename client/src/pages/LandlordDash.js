@@ -61,13 +61,13 @@ class LandlordDashboard extends Component {
                 Don't Get Scolded | Get Stuff Done
               </span>
 
-              <span className="login100-form-logo">
+              <a href="/"><span className="login100-form-logo">
                 <img
                   id="fingerLogo"
                   src="/assets/ttFingerLogoLoop.gif"
                   alt=""
                 />
-              </span>
+              </span></a>
 
               <h3 className="login100-form-title p-b-60 p-t-34" id="welcomeMsg">
                 Welcome home,
