@@ -67,13 +67,13 @@ class LandlordReg extends Component {
                 <span className="login100-form-title" id="loginTitle">
                   TiskTask
                 </span>
-                <span className="login100-form-logo">
+                <a href="/"><span className="login100-form-logo">
                   <img
                     id="fingerLogo"
                     src="/assets/ttFingerLogoLoop.gif"
                     alt=""
                   />
-                </span>
+                </span></a>
                 <span className="login100-form-title" id="loginSubTitle1">
                   Don't Get Scolded | Get Stuff Done
                 </span>

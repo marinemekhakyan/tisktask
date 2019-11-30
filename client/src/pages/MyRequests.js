@@ -122,9 +122,9 @@ class MyRequests extends Component {
               <span className="login100-form-title" id="loginSubTitle2">
                 Don't Get Scolded | Get Stuff Done
               </span>
-              <span className="login100-form-logo">
+              <a href="/"><span className="login100-form-logo">
                 <img id="fingerLogo" src="assets/ttFingerLogoLoop.gif" alt="" />
-              </span>
+              </span></a>
               {/* <form onSubmit={this.handleSubmit}>
                 <div className="wrap-input100 validate-input">
                   <input
