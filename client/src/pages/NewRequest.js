@@ -357,11 +357,11 @@ class NewRequest extends Component {
                    About TiskTask
                 </a>
                 </div>
-                {/* <div className="text-center p-t-5">
-                                    <a className="txt1" href="#">
-                                        Forgot Password?
-                                    </a> 
-                                </div> */}
+            {/* <div className="text-center p-t-5">
+                    <a className="txt1" href="#">
+                        Forgot Password?
+                    </a> 
+                </div> */}
                 <div className="text-center">
                 <a className="txt1" href="/tenant-dashboard">
                   Back to my dashboard
