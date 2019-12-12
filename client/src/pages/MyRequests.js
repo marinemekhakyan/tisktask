@@ -63,12 +63,12 @@ class MyRequests extends Component {
       requests: [
         {
           id: 1,
-          request: "neightbor's cats are loud",
+          request: "neighbor's cats are loud",
           status: "Pending review"
         },
         {
           id: 2,
-          request: "very squeeky door",
+          request: "too much Christmas cheer",
           status: "In progress"
         }
       ],
