@@ -1,5 +1,4 @@
 # TiskTask - Coding Bootcamp Project #3
-<center><b>Welcome to TiskTask!</b></center></br>
 
 <center><img src="https://github.com/marinemekhakyan/tisktask/blob/master/client/public/assets/ttFingerLogoLoop.gif?raw=true"></b></center></br>
 <br>

@@ -85,7 +85,7 @@ class About extends Component {
                             
                             <button>
                                 <a href="https://github.com/marinemekhakyan" className="creatorsSection2">
-                                    <p id="aboutRoles">Back End | Team Captain</p>
+                                    <p id="aboutRoles">React | Team Captain</p>
                                     <img id="marinePic" src="./assets/marinePic.PNG"/>
                                     <h5 id="aboutNames">Marine M.</h5>
                                 </a>
