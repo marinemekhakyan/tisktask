@@ -174,12 +174,18 @@ iframe {
 
 .bottomBtns{
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 
 .newTaskImg{
   margin-right: -11vw;
+  margin-left: 35px;
+}
+
+#newRequestBtnTitle {
+  margin-top: 15px;
+  font-size: 22px;
 }
 
 #newTaskImg{
