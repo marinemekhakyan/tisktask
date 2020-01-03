@@ -3,10 +3,10 @@ import Requests from "../components/Comments/Comments";
 import API from "../utils/API";
 
 class TiskTasks extends Component {
-  state = {
-    unitID: 2,
-    requests: []
-  };
+  // state = {
+  //   unitID: 2,
+  //   requests: []
+  // };
 
   componentDidMount() {
     // console.log("before API call");
@@ -75,41 +75,41 @@ class TiskTasks extends Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  getAllTickets = () => {
-    API.findAllTickets(this.state.unitID)
-      .then(res => res.json())
-      .then(res => {
-        console.log(res);
-        //this.setState({resquests:res.data})
-        this.setState({
-          requests: [
-            {
-              id: 1,
-              request: "neighbor's cats are loud",
-              status: 0
-            },
-            {
-              id: 2,
-              request: "very squeeky door",
-              status: 0
-            }
-          ]
-        });
-      })
-      .catch(err => console.error(err));
-  };
+  // getAllTickets = () => {
+  //   API.findAllTickets(this.state.unitID)
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res);
+  //       //this.setState({resquests:res.data})
+  //       this.setState({
+  //         requests: [
+  //           {
+  //             id: 1,
+  //             request: "neighbor's cats are loud",
+  //             status: 0
+  //           },
+  //           {
+  //             id: 2,
+  //             request: "very squeeky door",
+  //             status: 0
+  //           }
+  //         ]
+  //       });
+  //     })
+  //     .catch(err => console.error(err));
+  // };
 
-  handleStatus = (reqID, newStatus) => {
-    console.log("handlestatus1", reqID);
-    API.updateTicket(this.state.unitID, reqID, { status: newStatus })
-      .then(res => {
-        if (res.ok) {
-          this.getAllTickets();
-        }
-      })
-      .catch(err => console.error(err));
+  // handleStatus = (reqID, newStatus) => {
+  //   console.log("handlestatus1", reqID);
+  //   API.updateTicket(this.state.unitID, reqID, { status: newStatus })
+  //     .then(res => {
+  //       if (res.ok) {
+  //         this.getAllTickets();
+  //       }
+  //     })
+  //     .catch(err => console.error(err));
     //api call for updating the request based on the id and the type
-  };
+  // };
 
   render() {
     return (
@@ -138,8 +138,8 @@ class TiskTasks extends Component {
               </span></a>
               <div className="container">
                 <section>
-                  <form className="ac-custom ac-list" autocomplete="off">
-                    <h4 className="h4">TiskTasks</h4>
+                  <div className="ac-custom ac-list" autocomplete="off">
+                    <h2 className="h4">TiskTasks</h2>
                     {/* {this.state.requests.map(req => (
                       <Comments
                         key={req.id}
@@ -149,13 +149,21 @@ class TiskTasks extends Component {
                       />
                     ))} */}
                      {this.state.requests.map(req => (
-                      <div key={req.id} className="card">
-                        <div className="card-body">
-                          <p>{req.request}</p>
-                        </div>
-                      </div>
+                        <Requests
+                        key={req.id}
+                        id={req.id}
+                        request={req.request}
+                        status={req.status}
+                        // openDate={req.open_date}
+                      // <div key={req.id} className="card">
+                      //   <div className="card-body">
+                      //     <p>{req.request}</p>
+                      //   </div>
+                      // </div>
+                      />
                     ))}
-                  </form>
+                    </div>
+                  {/* </form> */}
                 </section>
               </div>
               <div className="bottomBtns p-t-10">
