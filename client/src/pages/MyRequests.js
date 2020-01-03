@@ -155,7 +155,7 @@ class MyRequests extends Component {
                         id={req.id}
                         request={req.request}
                         status={req.status}
-                        // openDate={req.open_date}
+                      // openDate={req.open_date}
                       />
                     ))}
                     {/* {this.state.requests.map(req => (
@@ -183,18 +183,18 @@ class MyRequests extends Component {
                 </button>
               </div>
               <div className="text-center">
-              <a className="txt1" href="/tenant-dashboard">
+                <a className="txt1" href="/tenant-dashboard">
                   Back to my dashboard
-                </a> 
-                <hr /> 
+                </a>
+                <hr />
                 <a className="txt1" href="/about-tisktask">
-                   About TiskTask
+                  About TiskTask
                 </a>
                 <hr />
                 <a className="txt1" href="/">
                   Log Out
                 </a>
-                </div>
+              </div>
             </div>
           </div>
         </div>

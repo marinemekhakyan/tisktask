@@ -108,7 +108,7 @@ class TiskTasks extends Component {
   //       }
   //     })
   //     .catch(err => console.error(err));
-    //api call for updating the request based on the id and the type
+  //api call for updating the request based on the id and the type
   // };
 
   render() {
@@ -148,13 +148,13 @@ class TiskTasks extends Component {
                         handleStatus={this.handleStatus}
                       />
                     ))} */}
-                     {this.state.requests.map(req => (
-                        <Requests
+                    {this.state.requests.map(req => (
+                      <Requests
                         key={req.id}
                         id={req.id}
                         request={req.request}
                         status={req.status}
-                        // openDate={req.open_date}
+                      // openDate={req.open_date}
                       // <div key={req.id} className="card">
                       //   <div className="card-body">
                       //     <p>{req.request}</p>
@@ -162,7 +162,7 @@ class TiskTasks extends Component {
                       // </div>
                       />
                     ))}
-                    </div>
+                  </div>
                   {/* </form> */}
                 </section>
               </div>
@@ -191,15 +191,15 @@ class TiskTasks extends Component {
                     About TiskTask
                   </a>
                   <hr />
-                <a className="txt1" href="/">
-                  Log Out
-
+                  <a className="txt1" href="/">
+                    Log Out
+  
                 </a>
                 </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div id="dropDownSelect1"></div>
+          <div id="dropDownSelect1"></div>
         </div>
       </Fragment>
     );
