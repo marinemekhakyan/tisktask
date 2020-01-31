@@ -43,11 +43,8 @@ render() {
                             <p className="aboutParagraph" id="aboutBold">TENANTS</p>
                             <p className="aboutParagraph">No more Calling, Texting, Emailing your Maintenance Manager ... Then Calling, Texting, Emailing your Landlord to get that question answered, or repair addressed.</p>
                             <p className="aboutParagraph" id="aboutBold">LANDLORDS</p>
-                            <p className="aboutParagraph">Stop pulling your hair out making sure you've answered every Call, Text, Email to every Tenants, Contractor, Electrical, HVAC, Plumbing, & Landscaping companies.</p>
+                            <p className="aboutParagraph">Stop pulling your hair out making sure you've answered every Call, Text, Email to every Tenant, Contractor, Electrical, HVAC, Plumbing, & Landscaping companies.</p>
                         </div>
-
-
-
                         <hr />
 
                         <div className="aboutStatusBtns">
@@ -55,13 +52,13 @@ render() {
                                 <img id="aboutApprovedSymbol" src="./assets/approvedSymbol.png" />
                                 <p id="symbolTitles">Approved</p>
                             </div>
-                            <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.</p>
+                            <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has seen and approved the Tenant's Request. LandLords may update tenants by clicking this symbol on the TiskTasks Page.</p>
 
                             <div className="inProgressSection">
                                 <img id="aboutInProgressSymbol" src="./assets/progressSymbol.png" />
                                 <p id="symbolTitles">In Progress</p>
                             </div>
-                            <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has scheduled to resolve the Tenant's Request. LandLords may update the tenant by clicking this symbol on the TiskTasks Page.</p>
+                            <p className="symbolsParagraph">If this symbol is highlighted, it means the LandLord has scheduled to resolve the Tenant's Request. LandLords may update tenants by clicking this symbol on the TiskTasks Page.</p>
 
                             <div className="onHoldSection">
                                 <img id="aboutOnHoldSymbol" src="./assets/onHoldSymbol.png" />
